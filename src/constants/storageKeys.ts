@@ -1,0 +1,3 @@
+export const STORAGE_KEYS = {
+  ONBOARDING_STATUS: 'ONBOARDING_STATUS',
+} as const;

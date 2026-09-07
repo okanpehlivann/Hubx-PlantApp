@@ -1,0 +1,4 @@
+export enum PAYWALL_OPTIONS {
+  MONTHLY = 'MONTHLY',
+  YEARLY = 'YEARLY',
+}
