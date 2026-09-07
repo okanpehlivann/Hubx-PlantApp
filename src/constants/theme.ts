@@ -19,8 +19,13 @@ export const COLORS = {
   textOnDarkFaded: 'rgba(255, 255, 255, 0.5)',
   textOnDarkDisabled: 'rgba(255, 255, 255, 0.3)',
 
+  // Feedback states
+  error: '#D92D20',
+  errorBackground: '#FDECEC',
+
   // Borders, overlays and shadows
   border: 'rgba(60, 60, 67, 0.1)',
+  categoryBorder: 'rgba(41, 187, 137, 0.18)',
   borderStrong: 'rgba(60, 60, 67, 0.25)',
   borderOnDark: 'rgba(255, 255, 255, 0.15)',
   overlayDark: 'rgba(0, 0, 0, 0.4)',
@@ -32,6 +37,9 @@ export const COLORS = {
   premiumBackground: '#24201A',
   premiumTitle: '#E4B046',
   premiumDescription: '#F5C25B',
+
+  // Home cards
+  questionCardBackground: '#173324',
 };
 
 export const SIZES = {

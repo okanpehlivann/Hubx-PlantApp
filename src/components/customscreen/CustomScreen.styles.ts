@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '@constants';
+import { COLORS, SPACING } from '@constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
+  },
+  stateContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: SPACING.lg,
   },
 });
 

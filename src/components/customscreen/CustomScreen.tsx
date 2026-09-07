@@ -1,8 +1,10 @@
 import React from 'react';
-import { StatusBar, ScrollView, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from '@constants';
+import ErrorState from '../errorstate';
 import styles from './CustomScreen.styles';
-import { CustomScreenProps } from '.';
+import type { CustomScreenProps } from '.';
 
 export const CustomScreen: React.FC<CustomScreenProps> = ({
   children,
@@ -12,6 +14,10 @@ export const CustomScreen: React.FC<CustomScreenProps> = ({
   statusBarStyle = 'dark-content',
   edges = ['top', 'bottom'],
   scroll = false,
+  loading = false,
+  error,
+  errorMessage = 'Hay aksi, bir hata oluştu.',
+  errorIcon,
 }) => {
   const Container = scroll ? ScrollView : View;
   const containerProps = scroll
@@ -20,6 +26,20 @@ export const CustomScreen: React.FC<CustomScreenProps> = ({
         showsVerticalScrollIndicator: false,
       }
     : { style: [styles.content, contentContainerStyle] };
+
+  const content = loading ? (
+    <View style={styles.stateContainer}>
+      <ActivityIndicator
+        size="large"
+        color={COLORS.primary}
+        accessibilityLabel="Loading"
+      />
+    </View>
+  ) : error ? (
+    <ErrorState message={errorMessage} icon={errorIcon} />
+  ) : (
+    children
+  );
 
   return (
     <SafeAreaView
@@ -31,7 +51,7 @@ export const CustomScreen: React.FC<CustomScreenProps> = ({
       ]}
     >
       <StatusBar barStyle={statusBarStyle} />
-      <Container {...containerProps}>{children}</Container>
+      <Container {...containerProps}>{content}</Container>
     </SafeAreaView>
   );
 };

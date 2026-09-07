@@ -24,7 +24,23 @@ const styles = StyleSheet.create({
     marginLeft: SPACING.sm,
   },
   searchInput: {
+    marginHorizontal: SPACING.lg,
+  },
+  searchArea: {
+    height: 73,
+    position: 'relative',
+    justifyContent: 'center',
+    marginHorizontal: -SPACING.lg,
     marginBottom: SPACING.lg,
+  },
+  searchBackground: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
   },
   premiumCard: {
     minHeight: 64,
@@ -48,6 +64,30 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 16,
     letterSpacing: 0,
+  },
+  sectionTitle: {
+    marginTop: SPACING.xl,
+    marginBottom: SPACING.md,
+  },
+  questionsList: {
+    marginHorizontal: -SPACING.lg,
+    marginBottom: SPACING.xl,
+  },
+  questionsContent: {
+    paddingHorizontal: SPACING.lg,
+    gap: SPACING.md,
+  },
+  questionCard: {
+    aspectRatio: 1.46,
+  },
+  categoryGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  categoryCard: {
+    height: 178,
+    marginBottom: SPACING.md,
   },
 });
 

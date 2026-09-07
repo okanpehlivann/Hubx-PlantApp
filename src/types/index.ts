@@ -7,3 +7,17 @@ export type {
   GetStartedNavigationProp,
   OnboardingNavigationProp,
 };
+
+export type {
+  BaseResponse,
+  PaginatedResponse,
+  Pagination,
+  PaginationMeta,
+  Category,
+  CategoryImage,
+  CategoryImageFormat,
+  GetCategoriesResponse,
+  Question,
+  GetQuestionsApiResponse,
+  GetQuestionsResponse,
+} from './api';

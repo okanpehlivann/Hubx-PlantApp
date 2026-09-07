@@ -8,6 +8,7 @@ export { default as TabHomeIcon } from './icons/tab-home.svg';
 export const IMAGES = {
   brush: require('./images/brush.png'),
   getStarted: require('./images/get-started.png'),
+  homeBackground: require('./images/home-background.png'),
   onboardingFirst: require('./images/onboarding-first.png'),
   onboardingTwoBackground: require('./images/onboarding-two-bg.png'),
   onboardingTwoPhone: require('./images/onboarding-two-phone.png'),

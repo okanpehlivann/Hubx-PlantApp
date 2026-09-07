@@ -1,16 +1,20 @@
 import { CustomScreen } from './CustomScreen';
-import { Edge } from 'react-native-safe-area-context';
-import { ReactNode } from 'react';
-import { ViewStyle, StatusBarStyle } from 'react-native';
+import type { ReactNode } from 'react';
+import type { StatusBarStyle, ViewStyle } from 'react-native';
+import type { Edge } from 'react-native-safe-area-context';
 
 export interface CustomScreenProps {
-  children: ReactNode;
+  children?: ReactNode;
   style?: ViewStyle;
   contentContainerStyle?: ViewStyle;
   backgroundColor?: string;
   statusBarStyle?: StatusBarStyle;
   edges?: Edge[];
   scroll?: boolean;
+  loading?: boolean;
+  error?: unknown;
+  errorMessage?: string;
+  errorIcon?: ReactNode;
 }
 
 export default CustomScreen;

@@ -3,8 +3,7 @@ import { PAYWALL_OPTIONS } from '@enums';
 import React, { useState } from 'react';
 import { FlatList, Image, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useDispatch } from 'react-redux';
-import { setOnboardingCompleted } from '@store';
+import { setOnboardingCompleted, useAppDispatch } from '@store';
 import { COLORS, SPACING, PAYWALL_FEATURES, PAYWALL_PLANS } from '@constants';
 import {
   CustomScreen,
@@ -17,7 +16,7 @@ import styles from './PaywallScreen.styles';
 
 export default function PaywallScreen() {
   const insets = useSafeAreaInsets();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [selectedPlanId, setSelectedPlanId] = useState<PAYWALL_OPTIONS>(
     PAYWALL_OPTIONS.YEARLY,
   );
