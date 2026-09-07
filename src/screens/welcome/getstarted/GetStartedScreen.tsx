@@ -73,14 +73,14 @@ export default function GetStartedScreen() {
         <CustomText
           variant="regular"
           size={11}
-          color="rgba(89, 113, 101, 0.7)"
+          color={COLORS.textSecondaryMuted}
           lineHeight={15}
           style={styles.termsText}
         >
           By tapping next, you are agreeing to PlantID{'\n'}
           <CustomText
             variant="regular"
-            color="rgba(89, 113, 101, 0.7)"
+            color={COLORS.textSecondaryMuted}
             style={styles.linkText}
           >
             Terms of Use
@@ -88,7 +88,7 @@ export default function GetStartedScreen() {
           &{' '}
           <CustomText
             variant="regular"
-            color="rgba(89, 113, 101, 0.7)"
+            color={COLORS.textSecondaryMuted}
             style={styles.linkText}
           >
             Privacy Policy

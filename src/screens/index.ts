@@ -2,3 +2,4 @@ export { default as GetStartedScreen } from './welcome/getstarted/GetStartedScre
 export { default as OnboardingScreen } from './welcome/onboarding/OnboardingScreen';
 export { default as PaywallScreen } from './welcome/paywall/PaywallScreen';
 export { default as HomeScreen } from './home/HomeScreen';
+export { default as LaunchScreen } from './launch/LaunchScreen';

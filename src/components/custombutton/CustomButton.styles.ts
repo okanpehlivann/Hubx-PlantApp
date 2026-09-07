@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    color: '#FFFFFF',
+    color: COLORS.textOnDark,
     fontFamily: FONTS.sfProText.bold,
     fontSize: 15,
     fontWeight: '700',

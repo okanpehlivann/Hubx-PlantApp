@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,6 +10,7 @@ import { NAVIGATION_FLOW } from '@enums';
 import { RootStackParamList } from './types';
 
 import { ROOT_ROUTES } from './routes';
+import { LaunchScreen } from '@screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -18,6 +19,7 @@ export default function RootNavigator() {
   const { isOnboardingCompleted, isLoading } = useSelector(
     (state: RootState) => state.app,
   );
+  const [isLaunchComplete, setIsLaunchComplete] = useState(false);
 
   useEffect(() => {
     const checkStatus = async () => {
@@ -37,7 +39,13 @@ export default function RootNavigator() {
     checkStatus();
   }, [dispatch]);
 
-  if (isLoading) return null;
+  const handleLaunchComplete = useCallback(() => {
+    setIsLaunchComplete(true);
+  }, []);
+
+  if (isLoading || !isLaunchComplete) {
+    return <LaunchScreen onComplete={handleLaunchComplete} />;
+  }
 
   return (
     <NavigationContainer>

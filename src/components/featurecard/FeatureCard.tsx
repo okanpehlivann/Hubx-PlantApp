@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { COLORS } from '@constants';
 import CustomText from '../customtext';
 import styles from './FeatureCard.styles';
 import { FeatureCardProps } from '.';
@@ -20,7 +21,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           size={20}
           letterSpacing={0.38}
           lineHeight={24}
-          color="#FFFFFF"
+          color={COLORS.textOnDark}
         >
           {title}
         </CustomText>
@@ -29,7 +30,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           size={13}
           letterSpacing={-0.08}
           lineHeight={18}
-          color="rgba(255, 255, 255, 0.7)"
+          color={COLORS.textOnDarkMuted}
           style={styles.description}
         >
           {description}

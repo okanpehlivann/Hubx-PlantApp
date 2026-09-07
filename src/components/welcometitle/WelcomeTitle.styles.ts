@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '@constants';
 
 const styles = StyleSheet.create({
   row: {
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     height: 13,
   },
   shadow: {
-    textShadowColor: 'rgba(19, 35, 27, 0.25)',
+    textShadowColor: COLORS.textShadow,
     textShadowOffset: { width: 0, height: 3 },
     textShadowRadius: 3,
   },

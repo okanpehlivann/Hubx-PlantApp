@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pressable, View } from 'react-native';
+import { COLORS } from '@constants';
 import CustomText from '../customtext';
 import styles from './RadioCard.styles';
 import { RadioCardProps } from '.';
@@ -25,7 +26,7 @@ export const RadioCard: React.FC<RadioCardProps> = ({
           variant="medium"
           size={16}
           letterSpacing={0}
-          color="#FFFFFF"
+          color={COLORS.textOnDark}
         >
           {title}
         </CustomText>
@@ -34,7 +35,7 @@ export const RadioCard: React.FC<RadioCardProps> = ({
             variant="light"
             size={12}
             letterSpacing={0}
-            color="rgba(255, 255, 255, 0.7)"
+            color={COLORS.textOnDarkMuted}
             style={styles.description}
           >
             {description}
@@ -47,7 +48,7 @@ export const RadioCard: React.FC<RadioCardProps> = ({
             variant="medium"
             size={12}
             letterSpacing={0}
-            color="#FFFFFF"
+            color={COLORS.textOnDark}
           >
             {badge}
           </CustomText>

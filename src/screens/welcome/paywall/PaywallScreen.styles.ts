@@ -1,12 +1,12 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { SPACING } from '@constants';
+import { COLORS, SPACING } from '@constants';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#101E17',
+    backgroundColor: COLORS.backgroundDark,
   },
   backgroundImage: {
     position: 'absolute',
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: COLORS.overlayDark,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 20,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     width: 156,
     height: 130,
     marginRight: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    backgroundColor: COLORS.surfaceDarkElevated,
     borderRadius: 14,
     padding: 14,
     justifyContent: 'space-between',
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   ctaButton: {
     marginTop: 8,
-    backgroundColor: '#28AF6E',
+    backgroundColor: COLORS.primary,
     borderRadius: 14,
     height: 52,
     justifyContent: 'center',

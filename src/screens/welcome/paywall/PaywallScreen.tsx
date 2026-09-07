@@ -34,7 +34,7 @@ export default function PaywallScreen() {
     const Icon = item.IconComponent;
     return (
       <FeatureCard
-        icon={<Icon width={17} height={17} fill="#FFFFFF" />}
+        icon={<Icon width={17} height={17} fill={COLORS.textOnDark} />}
         title={item.title}
         description={item.description}
         style={styles.featureCard}
@@ -44,7 +44,7 @@ export default function PaywallScreen() {
 
   return (
     <CustomScreen
-      backgroundColor={COLORS.darkBackground}
+      backgroundColor={COLORS.backgroundDark}
       statusBarStyle="light-content"
       edges={['bottom']}
       contentContainerStyle={styles.root}
@@ -60,7 +60,12 @@ export default function PaywallScreen() {
         onPress={completeOnboarding}
         hitSlop={12}
       >
-        <CustomText variant="bold" size={16} lineHeight={18} color={'#FFFFFF'}>
+        <CustomText
+          variant="bold"
+          size={16}
+          lineHeight={18}
+          color={COLORS.textOnDark}
+        >
           ×
         </CustomText>
       </Pressable>
@@ -70,14 +75,14 @@ export default function PaywallScreen() {
           variant="extraBold"
           size={30}
           letterSpacing={0}
-          color="#FFFFFF"
+          color={COLORS.textOnDark}
         >
           PlantApp{' '}
           <CustomText
             variant="light"
             size={24}
             letterSpacing={0}
-            color="#FFFFFF"
+            color={COLORS.textOnDark}
           >
             Premium
           </CustomText>
@@ -86,7 +91,7 @@ export default function PaywallScreen() {
           variant="light"
           size={17}
           letterSpacing={0.38}
-          color="rgba(255, 255, 255, 0.7)"
+          color={COLORS.textOnDarkMuted}
           style={styles.subheading}
         >
           Access All Features
@@ -125,7 +130,7 @@ export default function PaywallScreen() {
           size={9}
           lineHeight={13}
           letterSpacing={0}
-          color="rgba(255, 255, 255, 0.52)"
+          color={COLORS.textOnDarkSubtle}
           style={styles.disclaimer}
         >
           After the 3-day free trial period you'll be charged $274.99 per year
@@ -138,14 +143,14 @@ export default function PaywallScreen() {
             variant="regular"
             size={11}
             letterSpacing={0}
-            color={'rgba(255, 255, 255, 0.5)'}
+            color={COLORS.textOnDarkFaded}
           >
             Terms
           </CustomText>
           <CustomText
             variant="regular"
             size={11}
-            color={'rgba(255, 255, 255, 0.3)'}
+            color={COLORS.textOnDarkDisabled}
             style={styles.linkDivider}
           >
             •
@@ -154,14 +159,14 @@ export default function PaywallScreen() {
             variant="regular"
             size={11}
             letterSpacing={0}
-            color={'rgba(255, 255, 255, 0.5)'}
+            color={COLORS.textOnDarkFaded}
           >
             Privacy
           </CustomText>
           <CustomText
             variant="regular"
             size={11}
-            color={'rgba(255, 255, 255, 0.3)'}
+            color={COLORS.textOnDarkDisabled}
             style={styles.linkDivider}
           >
             •
@@ -170,7 +175,7 @@ export default function PaywallScreen() {
             variant="regular"
             size={11}
             letterSpacing={0}
-            color={'rgba(255, 255, 255, 0.5)'}
+            color={COLORS.textOnDarkFaded}
           >
             Restore
           </CustomText>

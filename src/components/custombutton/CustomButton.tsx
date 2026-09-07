@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, ActivityIndicator, Pressable } from 'react-native';
+import { COLORS } from '@constants';
 import styles from './CustomButton.styles';
 import { CustomButtonProps } from '.';
 
@@ -17,7 +18,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
       style={[styles.button, style]}
     >
       {loading ? (
-        <ActivityIndicator color="#FFFFFF" />
+        <ActivityIndicator color={COLORS.textOnDark} />
       ) : (
         <Text style={[styles.text, textStyle]}>{title}</Text>
       )}
