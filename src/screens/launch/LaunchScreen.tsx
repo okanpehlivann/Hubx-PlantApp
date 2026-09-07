@@ -1,17 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import {
-  Animated,
-  Easing,
-  View,
-} from 'react-native';
+import { Animated, Easing, View } from 'react-native';
 import { TabHomeIcon } from '@assets';
 import { COLORS } from '@constants';
 import { CustomScreen, CustomText } from '@components';
 import styles from './LaunchScreen.styles';
-
-export interface LaunchScreenProps {
-  onComplete: () => void;
-}
+import { LaunchScreenProps } from '@types';
 
 export default function LaunchScreen({ onComplete }: LaunchScreenProps) {
   const contentOpacity = useRef(new Animated.Value(0)).current;
@@ -74,7 +67,13 @@ export default function LaunchScreen({ onComplete }: LaunchScreenProps) {
       enterAnimation.stop();
       exitAnimation.stop();
     };
-  }, [contentOpacity, contentScale, exitTranslateY, iconTranslateY, onComplete]);
+  }, [
+    contentOpacity,
+    contentScale,
+    exitTranslateY,
+    iconTranslateY,
+    onComplete,
+  ]);
 
   return (
     <CustomScreen

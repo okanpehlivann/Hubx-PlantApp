@@ -7,20 +7,14 @@ import {
   NativeSyntheticEvent,
   View,
 } from 'react-native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import type { RootStackParamList } from '@navigation';
 import { SCREEN_NAMES, ONBOARDING_SLIDES, OnboardingSlide } from '@constants';
 import { CustomScreen, CustomButton, WelcomeTitle } from '@components';
 import styles from './OnboardingScreen.styles';
-
-type NavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  typeof SCREEN_NAMES.Onboarding
->;
+import { OnboardingNavigationProp } from '@types';
 
 export default function OnboardingScreen() {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation<OnboardingNavigationProp>();
   const listRef = useRef<FlatList<OnboardingSlide>>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [footerHeight, setFooterHeight] = useState(0);

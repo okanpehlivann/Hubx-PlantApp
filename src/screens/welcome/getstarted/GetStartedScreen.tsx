@@ -2,9 +2,7 @@ import { useArtworkLayout } from '@hooks';
 import { IMAGES } from '@assets';
 import React from 'react';
 import { View, Image } from 'react-native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import type { RootStackParamList } from '@navigation';
 import { COLORS, SCREEN_NAMES } from '@constants';
 import {
   CustomScreen,
@@ -13,14 +11,10 @@ import {
   WelcomeTitle,
 } from '@components';
 import styles from './GetStartedScreen.styles';
-
-type NavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  typeof SCREEN_NAMES.GetStarted
->;
+import { GetStartedNavigationProp } from '@types';
 
 export default function GetStartedScreen() {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation<GetStartedNavigationProp>();
   const {
     frameStyle,
     imageStyle,
