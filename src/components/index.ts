@@ -4,6 +4,8 @@ export { default as CustomScreen } from './customscreen';
 export type { CustomScreenProps } from './customscreen';
 export { default as ErrorState } from './errorstate';
 export type { ErrorStateProps } from './errorstate';
+export { default as AppErrorFallback } from './apperrorfallback';
+export type { AppErrorFallbackProps } from './apperrorfallback';
 export { default as QuestionCard } from './questioncard';
 export type { QuestionCardProps } from './questioncard';
 export { default as CategoryCard } from './categorycard';

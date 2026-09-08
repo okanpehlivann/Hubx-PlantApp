@@ -1,5 +1,11 @@
 import React from 'react';
-import { Image, Linking, ScrollView, useWindowDimensions, View } from 'react-native';
+import {
+  Image,
+  Linking,
+  ScrollView,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import {
   CategoryCard,
   CommonCard,
