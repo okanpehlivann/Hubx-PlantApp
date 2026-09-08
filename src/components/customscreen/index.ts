@@ -15,6 +15,9 @@ export interface CustomScreenProps {
   error?: unknown;
   errorMessage?: string;
   errorIcon?: ReactNode;
+  refreshing?: boolean;
+  onRefresh?: () => void;
+  refreshColor?: string;
 }
 
 export default CustomScreen;

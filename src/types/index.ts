@@ -1,4 +1,5 @@
 import type { LaunchScreenProps } from './launchscreen';
+import type { HomeContentProps } from './api/homescreen';
 import type {
   GetStartedNavigationProp,
   MainTabParamList,
@@ -14,6 +15,7 @@ export type {
   MainTabParamList,
   RootStackParamList,
   RootNavigatorProps,
+  HomeContentProps,
 };
 
 export type {

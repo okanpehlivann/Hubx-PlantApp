@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.premiumBackground,
     paddingHorizontal: SPACING.md,
     paddingVertical: SPACING.md,
+    marginBottom: SPACING.sm,
   },
   premiumTitle: {
     fontFamily: FONTS.sfProText.bold,
@@ -91,6 +92,35 @@ const styles = StyleSheet.create({
   },
   lastCategoryCard: {
     marginBottom: 0,
+  },
+  sectionState: {
+    flex: 0,
+    minHeight: 120,
+    paddingVertical: SPACING.md,
+    paddingHorizontal: SPACING.sm,
+  },
+  skeletonQuestionsRow: {
+    flexDirection: 'row',
+    gap: SPACING.md,
+    marginHorizontal: -SPACING.lg,
+    paddingHorizontal: SPACING.lg,
+    marginBottom: SPACING.xl,
+  },
+  skeletonQuestionCard: {
+    width: 240,
+    height: 160,
+    borderRadius: 16,
+  },
+  skeletonCategoryGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: SPACING.md,
+  },
+  skeletonCategoryCard: {
+    width: '47%',
+    height: 178,
+    borderRadius: 16,
   },
 });
 

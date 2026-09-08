@@ -42,8 +42,53 @@ describe('HomeScreen', () => {
     jest.restoreAllMocks();
   });
 
-  it('shows loading while either home request is pending', () => {
+  it('keeps the page available while categories are loading', () => {
     mockUseGetCategoriesQuery.mockReturnValue({
+      data: undefined,
+      error: undefined,
+      isLoading: true,
+    });
+    mockUseGetQuestionsQuery.mockReturnValue({
+      data: {
+        data: [
+          {
+            id: 1,
+            image_uri: 'https://example.com/question.jpg',
+            order: 1,
+            subtitle: 'Plant care',
+            title: 'Watering guide',
+            uri: 'https://example.com/question',
+          },
+        ],
+      },
+      error: undefined,
+      isLoading: false,
+    });
+
+    render(<HomeScreen />);
+
+    expect(screen.getByText('Hi, plant lover!')).toBeOnTheScreen();
+    expect(screen.getByTestId('categories-skeleton')).toBeOnTheScreen();
+    expect(screen.queryByTestId('questions-skeleton')).toBeNull();
+    expect(screen.getByText('Watering guide')).toBeOnTheScreen();
+  });
+
+  it('keeps categories available while questions are loading', () => {
+    mockUseGetCategoriesQuery.mockReturnValue({
+      data: {
+        data: [
+          {
+            id: 1,
+            image: { url: 'https://example.com/category.jpg' },
+            rank: 1,
+            title: 'Indoor plants',
+          },
+        ],
+      },
+      error: undefined,
+      isLoading: false,
+    });
+    mockUseGetQuestionsQuery.mockReturnValue({
       data: undefined,
       error: undefined,
       isLoading: true,
@@ -51,8 +96,9 @@ describe('HomeScreen', () => {
 
     render(<HomeScreen />);
 
-    expect(screen.getByLabelText('Loading')).toBeOnTheScreen();
-    expect(screen.queryByText('Hi, plant lover!')).toBeNull();
+    expect(screen.getByTestId('questions-skeleton')).toBeOnTheScreen();
+    expect(screen.queryByTestId('categories-skeleton')).toBeNull();
+    expect(screen.getByText('Indoor plants')).toBeOnTheScreen();
   });
 
   it('shows an error state when a home request fails', () => {
@@ -65,8 +111,41 @@ describe('HomeScreen', () => {
     render(<HomeScreen />);
 
     expect(screen.getByRole('alert')).toBeOnTheScreen();
-    expect(screen.getByText('Hay aksi, bir hata oluştu.')).toBeOnTheScreen();
-    expect(screen.queryByText('Hi, plant lover!')).toBeNull();
+    expect(
+      screen.getByText('Plant guides could not be loaded.'),
+    ).toBeOnTheScreen();
+    expect(screen.getByText('Hi, plant lover!')).toBeOnTheScreen();
+  });
+
+  it('keeps questions visible when categories fail', () => {
+    mockUseGetCategoriesQuery.mockReturnValue({
+      data: undefined,
+      error: { status: 500 },
+      isLoading: false,
+    });
+    mockUseGetQuestionsQuery.mockReturnValue({
+      data: {
+        data: [
+          {
+            id: 1,
+            image_uri: 'https://example.com/question.jpg',
+            order: 1,
+            subtitle: 'Plant care',
+            title: 'Watering guide',
+            uri: 'https://example.com/question',
+          },
+        ],
+      },
+      error: undefined,
+      isLoading: false,
+    });
+
+    render(<HomeScreen />);
+
+    expect(screen.getByText('Watering guide')).toBeOnTheScreen();
+    expect(
+      screen.getByText('Plant categories could not be loaded.'),
+    ).toBeOnTheScreen();
   });
 
   it('orders successful results and opens the selected question link', () => {
@@ -134,5 +213,49 @@ describe('HomeScreen', () => {
 
     expect(openURL).toHaveBeenCalledTimes(1);
     expect(openURL).toHaveBeenCalledWith('https://example.com/question-a');
+  });
+
+  it('shows an empty state when a search has no matching plant or guide', () => {
+    mockUseGetQuestionsQuery.mockReturnValue({
+      data: {
+        data: [
+          {
+            id: 1,
+            image_uri: 'https://example.com/question.jpg',
+            order: 1,
+            subtitle: 'Plant care',
+            title: 'How to water a plant?',
+            uri: 'https://example.com/question',
+          },
+        ],
+      },
+      error: undefined,
+      isLoading: false,
+    });
+    mockUseGetCategoriesQuery.mockReturnValue({
+      data: {
+        data: [
+          {
+            id: 1,
+            image: { url: 'https://example.com/category.jpg' },
+            rank: 1,
+            title: 'Indoor plants',
+          },
+        ],
+      },
+      error: undefined,
+      isLoading: false,
+    });
+
+    render(<HomeScreen />);
+
+    fireEvent.changeText(screen.getByLabelText('Search for plants'), 'asdasd');
+
+    expect(screen.getByTestId('home-empty-state')).toBeOnTheScreen();
+    expect(screen.getByText('No results found')).toBeOnTheScreen();
+    expect(
+      screen.getByText(/couldn't find a plant matching “asdasd”/i),
+    ).toBeOnTheScreen();
+    expect(screen.queryByText('Indoor plants')).toBeNull();
   });
 });

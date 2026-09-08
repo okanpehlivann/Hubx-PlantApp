@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Pressable, View } from 'react-native';
+import { Pressable, View, Image } from 'react-native';
 import CustomText from '../customtext';
 import styles from './QuestionCard.styles';
 import type { QuestionCardProps } from '.';
@@ -21,8 +21,8 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       <View style={styles.image}>
         <Image
           source={{ uri: imageUri }}
-          resizeMode="cover"
           style={styles.backgroundImage}
+          resizeMode="cover"
         />
         <View style={styles.textContainer}>
           <CustomText

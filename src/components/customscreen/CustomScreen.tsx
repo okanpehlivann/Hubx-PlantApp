@@ -1,5 +1,11 @@
 import React from 'react';
-import { ActivityIndicator, ScrollView, StatusBar, View } from 'react-native';
+import {
+  ActivityIndicator,
+  RefreshControl,
+  ScrollView,
+  StatusBar,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from '@constants';
 import ErrorState from '../errorstate';
@@ -18,12 +24,24 @@ export const CustomScreen: React.FC<CustomScreenProps> = ({
   error,
   errorMessage = 'Hay aksi, bir hata oluştu.',
   errorIcon,
+  refreshing = false,
+  onRefresh,
+  refreshColor = COLORS.primary,
 }) => {
   const Container = scroll ? ScrollView : View;
+
   const containerProps = scroll
     ? {
         contentContainerStyle: [styles.content, contentContainerStyle],
         showsVerticalScrollIndicator: false,
+        refreshControl: onRefresh ? (
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={refreshColor}
+            colors={[refreshColor]}
+          />
+        ) : undefined,
       }
     : { style: [styles.content, contentContainerStyle] };
 
