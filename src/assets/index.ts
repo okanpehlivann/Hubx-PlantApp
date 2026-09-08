@@ -4,6 +4,10 @@ export { default as PremiumMessageIcon } from './icons/premium-msg.svg';
 export { default as RightArrowIcon } from './icons/right-arrow.svg';
 export { default as SearchIcon } from './icons/search.svg';
 export { default as TabHomeIcon } from './icons/tab-home.svg';
+export { default as TabDiagnoseIcon } from './icons/tab-diagnose.svg';
+export { default as TabScanIcon } from './icons/tab-scan.svg';
+export { default as TabGardenIcon } from './icons/tab-garden.svg';
+export { default as TabProfileIcon } from './icons/tab-profile.svg';
 
 export const IMAGES = {
   brush: require('./images/brush.png'),

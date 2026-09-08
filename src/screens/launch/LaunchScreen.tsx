@@ -96,7 +96,7 @@ export default function LaunchScreen({ onComplete }: LaunchScreenProps) {
       >
         <Animated.View style={{ transform: [{ translateY: iconTranslateY }] }}>
           <View style={styles.iconBackground}>
-            <TabHomeIcon width={44} height={46} />
+            <TabHomeIcon width={44} height={46} color={COLORS.primary} />
           </View>
         </Animated.View>
         <CustomText

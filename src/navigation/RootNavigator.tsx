@@ -10,19 +10,21 @@ import {
 } from '@store';
 import { STORAGE_KEYS } from '@constants';
 import { NAVIGATION_FLOW } from '@enums';
-import { RootStackParamList } from './types';
+import type { RootNavigatorProps, RootStackParamList } from './types';
 
 import { ROOT_ROUTES } from './routes';
 import { LaunchScreen } from '@screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function RootNavigator() {
+export default function RootNavigator({
+  startAtHome = false,
+}: RootNavigatorProps) {
   const dispatch = useAppDispatch();
   const { isOnboardingCompleted, isLoading } = useAppSelector(
     state => state.app,
   );
-  const [isLaunchComplete, setIsLaunchComplete] = useState(false);
+  const [isLaunchComplete, setIsLaunchComplete] = useState<boolean>(false);
 
   useEffect(() => {
     const checkStatus = async () => {
@@ -50,16 +52,23 @@ export default function RootNavigator() {
     return <LaunchScreen onComplete={handleLaunchComplete} />;
   }
 
+  const routes = startAtHome
+    ? ROOT_ROUTES.filter(route => route.name === 'Home')
+    : ROOT_ROUTES.filter(
+        route =>
+          route.flow ===
+          (isOnboardingCompleted
+            ? NAVIGATION_FLOW.MAIN
+            : NAVIGATION_FLOW.ONBOARDING),
+      );
+
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {ROOT_ROUTES.filter(
-          route =>
-            route.flow ===
-            (isOnboardingCompleted
-              ? NAVIGATION_FLOW.MAIN
-              : NAVIGATION_FLOW.ONBOARDING),
-        ).map(route => (
+      <Stack.Navigator
+        initialRouteName={startAtHome ? 'Home' : undefined}
+        screenOptions={{ headerShown: false }}
+      >
+        {routes.map(route => (
           <Stack.Screen
             key={route.name}
             name={route.name}

@@ -1,6 +1,8 @@
 import { AppErrorFallback } from './AppErrorFallback';
-import type { AppErrorFallbackProps } from './AppErrorFallback';
+
+export interface AppErrorFallbackProps {
+  onGoHome: () => void;
+}
 
 export { AppErrorFallback };
-export type { AppErrorFallbackProps };
 export default AppErrorFallback;

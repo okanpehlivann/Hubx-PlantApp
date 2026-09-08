@@ -25,7 +25,13 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
           style={styles.backgroundImage}
         />
         <View style={styles.textContainer}>
-          <CustomText style={styles.title}>{title}</CustomText>
+          <CustomText
+            numberOfLines={3}
+            ellipsizeMode="tail"
+            style={styles.title}
+          >
+            {title}
+          </CustomText>
         </View>
       </View>
     </Pressable>

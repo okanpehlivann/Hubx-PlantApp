@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import { NAVIGATION_FLOW } from '@enums';
+import MainTabNavigator from './MainTabNavigator';
 
 type RootRoute = {
   name: string;
@@ -28,6 +29,6 @@ export const ROOT_ROUTES = [
   {
     name: 'Home',
     flow: NAVIGATION_FLOW.MAIN,
-    getComponent: (): ComponentType => getScreens().HomeScreen,
+    getComponent: (): ComponentType => MainTabNavigator,
   },
 ] as const satisfies readonly RootRoute[];

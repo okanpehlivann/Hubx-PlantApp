@@ -3,3 +3,7 @@ export { default as OnboardingScreen } from './welcome/onboarding/OnboardingScre
 export { default as PaywallScreen } from './welcome/paywall/PaywallScreen';
 export { default as HomeScreen } from './home/HomeScreen';
 export { default as LaunchScreen } from './launch/LaunchScreen';
+export { default as DiagnoseScreen } from './diagnose/DiagnoseScreen';
+export { default as ScanScreen } from './scan/ScanScreen';
+export { default as GardenScreen } from './garden/GardenScreen';
+export { default as ProfileScreen } from './profile/ProfileScreen';

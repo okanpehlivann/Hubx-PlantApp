@@ -2,17 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { TabHomeIcon } from '@assets';
 import { COLORS } from '@constants';
-import CustomButton from '../custombutton';
-import CustomScreen from '../customscreen';
-import CustomText from '../customtext';
+import { CustomButton, CustomScreen, CustomText } from '@components';
 import styles from './AppErrorFallback.styles';
-
-export interface AppErrorFallbackProps {
-  onRetry: () => void;
-}
+import { AppErrorFallbackProps } from '.';
 
 export const AppErrorFallback: React.FC<AppErrorFallbackProps> = ({
-  onRetry,
+  onGoHome,
 }) => {
   const logoTranslateY = useRef(new Animated.Value(0)).current;
   const pulseProgress = useRef(new Animated.Value(0)).current;
@@ -77,7 +72,7 @@ export const AppErrorFallback: React.FC<AppErrorFallbackProps> = ({
       edges={['top', 'bottom']}
       contentContainerStyle={styles.content}
     >
-      <View accessibilityRole="alert">
+      <View style={styles.contentInner} accessibilityRole="alert">
         <View style={styles.logoArea} accessible accessibilityLabel="PlantApp">
           <Animated.View
             pointerEvents="none"
@@ -95,7 +90,7 @@ export const AppErrorFallback: React.FC<AppErrorFallbackProps> = ({
               { transform: [{ translateY: logoTranslateY }] },
             ]}
           >
-            <TabHomeIcon width={44} height={46} />
+            <TabHomeIcon width={44} height={46} color={COLORS.primary} />
           </Animated.View>
         </View>
 
@@ -115,14 +110,14 @@ export const AppErrorFallback: React.FC<AppErrorFallbackProps> = ({
           color={COLORS.textSecondary}
           style={styles.message}
         >
-          Uygulama beklenmeyen bir hatayla karşılaştı. Tekrar deneyerek kaldığın
-          yerden devam edebilirsin.
+          Uygulama beklenmeyen bir hatayla karşılaştı. Ana sayfaya dönerek devam
+          edebilirsin.
         </CustomText>
 
         <CustomButton
-          title="Tekrar Dene"
-          onPress={onRetry}
-          style={styles.retryButton}
+          title="Ana Sayfaya Git"
+          onPress={onGoHome}
+          style={styles.homeButton}
         />
       </View>
     </CustomScreen>

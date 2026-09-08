@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     paddingHorizontal: SPACING.lg,
     paddingTop: SPACING.sm,
-    paddingBottom: SPACING.xl,
+    paddingBottom: SPACING.xl * 2,
   },
   header: {
     marginBottom: SPACING.lg,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     gap: SPACING.md,
   },
   questionCard: {
-    aspectRatio: 1.46,
+    aspectRatio: 1.5,
   },
   categoryGrid: {
     flexDirection: 'row',
@@ -88,6 +88,9 @@ const styles = StyleSheet.create({
   categoryCard: {
     height: 178,
     marginBottom: SPACING.md,
+  },
+  lastCategoryCard: {
+    marginBottom: 0,
   },
 });
 

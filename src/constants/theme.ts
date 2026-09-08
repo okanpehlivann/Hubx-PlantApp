@@ -18,6 +18,7 @@ export const COLORS = {
   textOnDarkSubtle: 'rgba(255, 255, 255, 0.52)',
   textOnDarkFaded: 'rgba(255, 255, 255, 0.5)',
   textOnDarkDisabled: 'rgba(255, 255, 255, 0.3)',
+  tabInactive: '#BDBDBD',
 
   // Feedback states
   error: '#D92D20',

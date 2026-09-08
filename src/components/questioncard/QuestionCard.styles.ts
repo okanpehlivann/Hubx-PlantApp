@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
+    minHeight: 64,
+    justifyContent: 'center',
     paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.md,
   },
   title: {
     color: COLORS.textOnDark,

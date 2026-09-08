@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: SPACING.lg,
   },
+  contentInner: {
+    width: '100%',
+    alignItems: 'center',
+  },
   logoArea: {
     width: 128,
     height: 128,
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
     marginTop: SPACING.sm,
     textAlign: 'center',
   },
-  retryButton: {
+  homeButton: {
     maxWidth: 327,
     marginTop: SPACING.xl,
   },

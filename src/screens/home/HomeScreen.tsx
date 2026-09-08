@@ -39,10 +39,15 @@ export default function HomeScreen() {
   const orderedCategories = [...(categories?.data ?? [])].sort(
     (firstCategory, secondCategory) => firstCategory.rank - secondCategory.rank,
   );
+  const lastCategoryRowStartIndex = Math.max(
+    0,
+    orderedCategories.length - (orderedCategories.length % 2 || 2),
+  );
 
   return (
     <CustomScreen
       scroll
+      edges={['top']}
       loading={categoriesLoading || questionsLoading}
       error={categoriesError || questionsError}
       contentContainerStyle={styles.container}
@@ -129,13 +134,14 @@ export default function HomeScreen() {
       </ScrollView>
 
       <View style={styles.categoryGrid}>
-        {orderedCategories.map(category => (
+        {orderedCategories.map((category, index) => (
           <CategoryCard
             key={category.id}
             title={category.title}
             imageUri={category.image.url}
             style={[
               styles.categoryCard,
+              index >= lastCategoryRowStartIndex && styles.lastCategoryCard,
               { width: (width - SPACING.lg * 2 - SPACING.md) / 2 },
             ]}
           />
