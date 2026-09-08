@@ -15,6 +15,9 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
     <Pressable
       onPress={onPress}
       disabled={loading}
+      accessibilityRole="button"
+      accessibilityLabel={title}
+      accessibilityState={{ disabled: loading, busy: loading }}
       style={[styles.button, style]}
     >
       {loading ? (

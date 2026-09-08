@@ -1,18 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
-  setOnboardingCompleted,
-  setLoading,
+  hydrateOnboardingStatus,
   useAppDispatch,
   useAppSelector,
 } from '@store';
-import { STORAGE_KEYS } from '@constants';
 import { NAVIGATION_FLOW } from '@enums';
-import type { RootNavigatorProps, RootStackParamList } from './types';
+import { SCREEN_NAMES } from '@constants';
+import type { RootNavigatorProps, RootStackParamList } from '@types';
 
-import { ROOT_ROUTES } from './routes';
+import { ROOT_ROUTES } from '../routes';
 import { LaunchScreen } from '@screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -27,21 +25,9 @@ export default function RootNavigator({
   const [isLaunchComplete, setIsLaunchComplete] = useState<boolean>(false);
 
   useEffect(() => {
-    const checkStatus = async () => {
-      try {
-        const value = await AsyncStorage.getItem(
-          STORAGE_KEYS.ONBOARDING_STATUS,
-        );
-        if (value !== null) {
-          dispatch(setOnboardingCompleted(JSON.parse(value)));
-        }
-      } catch (e) {
-        console.error(e);
-      } finally {
-        dispatch(setLoading(false));
-      }
-    };
-    checkStatus();
+    dispatch(hydrateOnboardingStatus())
+      .unwrap()
+      .catch(error => console.error(error));
   }, [dispatch]);
 
   const handleLaunchComplete = useCallback(() => {
@@ -53,7 +39,7 @@ export default function RootNavigator({
   }
 
   const routes = startAtHome
-    ? ROOT_ROUTES.filter(route => route.name === 'Home')
+    ? ROOT_ROUTES.filter(route => route.name === SCREEN_NAMES.Home)
     : ROOT_ROUTES.filter(
         route =>
           route.flow ===
@@ -65,7 +51,7 @@ export default function RootNavigator({
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={startAtHome ? 'Home' : undefined}
+        initialRouteName={startAtHome ? SCREEN_NAMES.Home : undefined}
         screenOptions={{ headerShown: false }}
       >
         {routes.map(route => (

@@ -73,6 +73,18 @@ When you want to forcefully reload, for example to reset the state of your app, 
 - **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
 - **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
+## Testing
+
+Run the complete unit test suite with:
+
+```sh
+npm test -- --runInBand
+```
+
+Use `npm run test:ci` for the deterministic CI suite with coverage, then run
+`npm run typecheck` and `npm run lint` for static checks. See
+[TESTING.md](./TESTING.md) for the test strategy and contribution guidelines.
+
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:

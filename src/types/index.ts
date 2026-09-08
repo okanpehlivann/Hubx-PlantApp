@@ -1,11 +1,19 @@
 import type { LaunchScreenProps } from './launchscreen';
-import type { GetStartedNavigationProp } from './navigation';
-import type { OnboardingNavigationProp } from './navigation';
+import type {
+  GetStartedNavigationProp,
+  MainTabParamList,
+  OnboardingNavigationProp,
+  RootStackParamList,
+  RootNavigatorProps,
+} from './navigation';
 
 export type {
   LaunchScreenProps,
   GetStartedNavigationProp,
   OnboardingNavigationProp,
+  MainTabParamList,
+  RootStackParamList,
+  RootNavigatorProps,
 };
 
 export type {

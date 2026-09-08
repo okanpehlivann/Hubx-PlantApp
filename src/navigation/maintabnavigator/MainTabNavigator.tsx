@@ -19,7 +19,7 @@ import {
   ProfileScreen,
   ScanScreen,
 } from '@screens';
-import type { MainTabParamList } from './types';
+import type { MainTabParamList } from '@types';
 import styles from './MainTabNavigator.styles';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();

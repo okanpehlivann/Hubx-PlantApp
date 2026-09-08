@@ -16,6 +16,9 @@ export const RadioCard: React.FC<RadioCardProps> = ({
   return (
     <Pressable
       onPress={onPress}
+      accessibilityRole="radio"
+      accessibilityLabel={title}
+      accessibilityState={{ checked: selected }}
       style={[styles.card, selected && styles.cardSelected, style]}
     >
       <View style={[styles.radio, selected && styles.radioSelected]}>

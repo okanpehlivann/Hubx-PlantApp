@@ -5,5 +5,5 @@ export {
   useLazyGetCategoriesQuery,
   useGetQuestionsQuery,
   useLazyGetQuestionsQuery,
-} from './homeApi';
+} from './home';
 export { API_ROUTES } from './routes';

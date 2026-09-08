@@ -1,4 +1,4 @@
-export { default as RootNavigator } from './RootNavigator';
-export { default as MainTabNavigator } from './MainTabNavigator';
-export type { MainTabParamList, RootStackParamList } from './types';
+export { default as RootNavigator } from './rootnavigator';
+export { default as MainTabNavigator } from './maintabnavigator';
+
 export { ROOT_ROUTES } from './routes';

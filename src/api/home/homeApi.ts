@@ -2,11 +2,9 @@ import type {
   GetCategoriesResponse,
   GetQuestionsApiResponse,
   GetQuestionsResponse,
-} from '../types/api';
-import { baseApi } from './baseApi';
-import { API_ROUTES } from './routes';
-
-const CACHE_TIME_SECONDS = 5 * 60;
+} from '@types';
+import { baseApi, API_ROUTES } from '@api';
+import { CACHE_TIME_SECONDS } from '@constants';
 
 export const homeApi = baseApi.injectEndpoints({
   endpoints: builder => ({

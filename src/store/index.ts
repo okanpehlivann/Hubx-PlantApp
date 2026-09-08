@@ -1,4 +1,11 @@
-export { store } from './store';
-export type { RootState, AppDispatch } from './store';
+export { setupStore, store } from './store';
+export type { AppDispatch, AppStore, RootState } from './store';
 export { useAppDispatch, useAppSelector } from './hooks';
-export { appSlice, setOnboardingCompleted, setLoading } from './appSlice';
+export {
+  appSlice,
+  hydrateOnboardingStatus,
+  persistOnboardingCompleted,
+  setOnboardingCompleted,
+  setLoading,
+} from './appSlice';
+export type { AppState } from './appSlice';

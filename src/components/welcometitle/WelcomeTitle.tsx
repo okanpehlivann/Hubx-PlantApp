@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 import { IMAGES } from '@assets';
-import { CustomText } from '@components';
+import CustomText from '../customtext';
 import type { WelcomeTitleProps } from '.';
 import styles from './WelcomeTitle.styles';
 

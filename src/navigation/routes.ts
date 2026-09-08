@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react';
 import { NAVIGATION_FLOW } from '@enums';
-import MainTabNavigator from './MainTabNavigator';
+import { SCREEN_NAMES } from '@constants';
+import { MainTabNavigator } from '@navigation';
 
 type RootRoute = {
   name: string;
@@ -12,22 +13,22 @@ const getScreens = (): typeof import('@screens') => require('@screens');
 
 export const ROOT_ROUTES = [
   {
-    name: 'GetStarted',
+    name: SCREEN_NAMES.GetStarted,
     flow: NAVIGATION_FLOW.ONBOARDING,
     getComponent: (): ComponentType => getScreens().GetStartedScreen,
   },
   {
-    name: 'Onboarding',
+    name: SCREEN_NAMES.Onboarding,
     flow: NAVIGATION_FLOW.ONBOARDING,
     getComponent: (): ComponentType => getScreens().OnboardingScreen,
   },
   {
-    name: 'Paywall',
+    name: SCREEN_NAMES.Paywall,
     flow: NAVIGATION_FLOW.ONBOARDING,
     getComponent: (): ComponentType => getScreens().PaywallScreen,
   },
   {
-    name: 'Home',
+    name: SCREEN_NAMES.Home,
     flow: NAVIGATION_FLOW.MAIN,
     getComponent: (): ComponentType => MainTabNavigator,
   },

@@ -1,0 +1,3 @@
+const CACHE_TIME_SECONDS = 5 * 60;
+
+export { CACHE_TIME_SECONDS };

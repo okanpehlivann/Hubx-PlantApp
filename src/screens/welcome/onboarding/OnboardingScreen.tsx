@@ -125,6 +125,7 @@ export default function OnboardingScreen() {
     <CustomScreen>
       <FlatList
         ref={listRef}
+        accessibilityLabel="Onboarding slides"
         data={ONBOARDING_SLIDES}
         horizontal
         pagingEnabled

@@ -3,7 +3,7 @@ import { PAYWALL_OPTIONS } from '@enums';
 import React, { useState } from 'react';
 import { FlatList, Image, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { setOnboardingCompleted, useAppDispatch } from '@store';
+import { persistOnboardingCompleted, useAppDispatch } from '@store';
 import { COLORS, SPACING, PAYWALL_FEATURES, PAYWALL_PLANS } from '@constants';
 import {
   CustomScreen,
@@ -22,7 +22,9 @@ export default function PaywallScreen() {
   );
 
   const completeOnboarding = () => {
-    dispatch(setOnboardingCompleted(true));
+    dispatch(persistOnboardingCompleted(true))
+      .unwrap()
+      .catch(error => console.error(error));
   };
 
   const renderPaywallFeature = ({
@@ -58,6 +60,8 @@ export default function PaywallScreen() {
         style={[styles.closeButton, { top: insets.top + SPACING.xs }]}
         onPress={completeOnboarding}
         hitSlop={12}
+        accessibilityRole="button"
+        accessibilityLabel="Close paywall"
       >
         <CustomText
           variant="bold"

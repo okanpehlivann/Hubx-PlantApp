@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { TabHomeIcon } from '@assets';
 import { COLORS } from '@constants';
-import { CustomButton, CustomScreen, CustomText } from '@components';
+import CustomButton from '../custombutton';
+import CustomScreen from '../customscreen';
+import CustomText from '../customtext';
 import styles from './AppErrorFallback.styles';
 import { AppErrorFallbackProps } from '.';
 

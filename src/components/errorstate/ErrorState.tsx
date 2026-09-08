@@ -11,7 +11,11 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
   messageStyle,
 }) => {
   return (
-    <View style={[styles.container, style]} accessibilityRole="alert">
+    <View
+      style={[styles.container, style]}
+      accessible
+      accessibilityRole="alert"
+    >
       {icon ?? (
         <View style={styles.icon}>
           <Text style={styles.iconText}>!</Text>
