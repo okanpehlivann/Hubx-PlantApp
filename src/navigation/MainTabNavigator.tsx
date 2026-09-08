@@ -46,13 +46,38 @@ const renderProfileIcon = ({ color }: TabIconProps) => (
 
 const hideTabLabel = () => null;
 
-function ScanTabButton({
+const TabBarButton = ({
   onPress,
   onLongPress,
   accessibilityState,
   accessibilityLabel,
   testID,
-}: BottomTabBarButtonProps) {
+  children,
+  style,
+}: BottomTabBarButtonProps) => {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityState={accessibilityState}
+      accessibilityLabel={accessibilityLabel}
+      onLongPress={onLongPress}
+      onPress={event => onPress?.(event)}
+      testID={testID}
+      android_ripple={{ color: 'transparent' }}
+      style={style}
+    >
+      {children}
+    </Pressable>
+  );
+};
+
+const ScanTabButton = ({
+  onPress,
+  onLongPress,
+  accessibilityState,
+  accessibilityLabel,
+  testID,
+}: BottomTabBarButtonProps) => {
   return (
     <Pressable
       accessibilityRole="button"
@@ -61,6 +86,7 @@ function ScanTabButton({
       onLongPress={onLongPress}
       onPress={event => onPress?.(event)}
       testID={testID}
+      android_ripple={{ color: 'transparent' }}
       style={styles.scanTabButton}
     >
       <View style={styles.scanButtonOuter}>
@@ -70,7 +96,7 @@ function ScanTabButton({
       </View>
     </Pressable>
   );
-}
+};
 
 export default function MainTabNavigator() {
   return (
@@ -80,6 +106,7 @@ export default function MainTabNavigator() {
         tabBarActiveTintColor: COLORS.primary,
         tabBarHideOnKeyboard: true,
         tabBarInactiveTintColor: COLORS.tabInactive,
+        tabBarButton: TabBarButton,
         tabBarItemStyle: styles.tabBarItem,
         tabBarLabelStyle: styles.tabBarLabel,
         tabBarStyle: styles.tabBar,
