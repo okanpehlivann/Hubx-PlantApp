@@ -7,7 +7,7 @@ module.exports = {
     '\\.(svg)$': '<rootDir>/__mocks__/svgMock.js',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|@react-navigation|react-redux|react-native-error-boundary|immer)/)',
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|@react-navigation|react-redux|react-native-error-boundary|react-native-image-picker|react-native-permissions|immer)/)',
   ],
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts,tsx}',

@@ -20,6 +20,20 @@ jest.mock('react-native-config', () => ({
   BASE_URL: 'https://example.test/',
 }));
 
+jest.mock('react-native-permissions', () => ({
+  check: jest.fn(),
+  PERMISSIONS: {
+    ANDROID: { CAMERA: 'android.permission.CAMERA' },
+    IOS: { CAMERA: 'ios.permission.CAMERA' },
+  },
+  request: jest.fn(),
+  RESULTS: {
+    BLOCKED: 'blocked',
+    DENIED: 'denied',
+    GRANTED: 'granted',
+  },
+}));
+
 jest.mock(
   'react-native-safe-area-context',
   () => jest.requireActual('react-native-safe-area-context/jest/mock').default,

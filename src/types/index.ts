@@ -1,5 +1,6 @@
 import type { LaunchScreenProps } from './launchscreen';
 import type { HomeContentProps } from './api/homescreen';
+import type { CameraPermissionStatus, UseCameraResult } from './camera';
 import type {
   SpeechToTextStatus,
   SpeechToTextError,
@@ -31,6 +32,7 @@ export type {
   UseSpeechToTextOptions,
   UseSpeechToTextResult,
 };
+export type { CameraPermissionStatus, UseCameraResult };
 
 export type {
   BaseResponse,

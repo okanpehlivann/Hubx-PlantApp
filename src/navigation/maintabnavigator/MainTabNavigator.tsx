@@ -12,6 +12,7 @@ import {
   TabScanIcon,
 } from '@assets';
 import { COLORS } from '@constants';
+import { useCamera } from '@hooks';
 import {
   DiagnoseScreen,
   GardenScreen,
@@ -84,7 +85,6 @@ const ScanTabButton = ({
   testID,
   tourTargetRef,
 }: ScanTabButtonProps) => {
-
   return (
     <Pressable
       accessibilityRole="button"
@@ -111,8 +111,22 @@ const ScanTabButton = ({
 
 const ConnectedScanTabButton = (props: BottomTabBarButtonProps) => {
   const { scanButtonRef } = useHomeTourTargets();
+  const { openCamera } = useCamera();
 
-  return <ScanTabButton {...props} tourTargetRef={scanButtonRef} />;
+  const handlePress = (
+    event: Parameters<NonNullable<BottomTabBarButtonProps['onPress']>>[0],
+  ) => {
+    props.onPress?.(event);
+    openCamera().catch(() => undefined);
+  };
+
+  return (
+    <ScanTabButton
+      {...props}
+      onPress={handlePress}
+      tourTargetRef={scanButtonRef}
+    />
+  );
 };
 
 const renderScanTabButton = (props: BottomTabBarButtonProps) => (
