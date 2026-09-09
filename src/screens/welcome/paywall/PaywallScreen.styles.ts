@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
     backgroundColor: COLORS.surfaceDarkElevated,
     borderRadius: 14,
-    padding: 14,
+    padding: 16,
     justifyContent: 'space-between',
   },
   planCard: {

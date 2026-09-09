@@ -41,11 +41,11 @@ export const CommonCard: React.FC<CommonCardProps> = ({
         ) : null}
       </View>
 
-      {showArrow ? (
-        arrowIcon ?? (
-          <RightArrowIcon width={24} height={24} style={styles.arrowIcon} />
-        )
-      ) : null}
+      {showArrow
+        ? arrowIcon ?? (
+            <RightArrowIcon width={24} height={24} style={styles.arrowIcon} />
+          )
+        : null}
     </Pressable>
   );
 };

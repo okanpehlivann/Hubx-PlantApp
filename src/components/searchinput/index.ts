@@ -13,6 +13,7 @@ export interface SearchInputProps
   containerStyle?: StyleProp<ViewStyle>;
   inputStyle?: StyleProp<TextStyle>;
   placeholderTextColor?: string;
+  clearable?: boolean;
 }
 
 export default SearchInput;

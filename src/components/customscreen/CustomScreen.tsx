@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ActivityIndicator,
+  Keyboard,
+  type LayoutChangeEvent,
   RefreshControl,
   ScrollView,
   StatusBar,
@@ -28,12 +30,30 @@ export const CustomScreen: React.FC<CustomScreenProps> = ({
   onRefresh,
   refreshColor = COLORS.primary,
 }) => {
+  const [scrollViewportHeight, setScrollViewportHeight] = useState(0);
   const Container = scroll ? ScrollView : View;
+
+  const handleScrollLayout = (event: LayoutChangeEvent) => {
+    setScrollViewportHeight(Math.ceil(event.nativeEvent.layout.height));
+  };
 
   const containerProps = scroll
     ? {
-        contentContainerStyle: [styles.content, contentContainerStyle],
+        contentContainerStyle: [
+          styles.content,
+          contentContainerStyle,
+          onRefresh &&
+            scrollViewportHeight > 0 && {
+              minHeight: scrollViewportHeight + 1,
+            },
+        ],
+        onLayout: handleScrollLayout,
         showsVerticalScrollIndicator: false,
+        alwaysBounceVertical: true,
+        overScrollMode: 'always' as const,
+        keyboardDismissMode: 'on-drag' as const,
+        keyboardShouldPersistTaps: 'handled' as const,
+        onScrollBeginDrag: () => Keyboard.dismiss(),
         refreshControl: onRefresh ? (
           <RefreshControl
             refreshing={refreshing}

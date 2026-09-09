@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: COLORS.surface,
     paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.sm,
   },
   iconWrapper: {
     width: 48,
+    height: 48,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: SPACING.sm + 4,

@@ -1,10 +1,12 @@
 import { useArtworkLayout } from '@hooks';
 import { IMAGES } from '@assets';
-import React from 'react';
-import { View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { COLORS, SCREEN_NAMES } from '@constants';
+import { COLORS, LEGAL_CONTENT, SCREEN_NAMES } from '@constants';
+import type { LegalDocument } from '@constants';
 import {
+  BottomSheet,
   CustomScreen,
   CustomButton,
   CustomText,
@@ -15,6 +17,8 @@ import { GetStartedNavigationProp } from '@types';
 
 export default function GetStartedScreen() {
   const navigation = useNavigation<GetStartedNavigationProp>();
+  const [activeLegalDocument, setActiveLegalDocument] =
+    useState<LegalDocument | null>(null);
   const {
     frameStyle,
     imageStyle,
@@ -64,32 +68,77 @@ export default function GetStartedScreen() {
           title="Get Started"
           onPress={() => navigation.navigate(SCREEN_NAMES.Onboarding)}
         />
-        <CustomText
-          variant="regular"
-          size={11}
-          color={COLORS.textSecondaryMuted}
-          lineHeight={15}
-          style={styles.termsText}
-        >
-          By tapping next, you are agreeing to PlantID{'\n'}
+        <View style={styles.termsContainer}>
           <CustomText
             variant="regular"
+            size={11}
             color={COLORS.textSecondaryMuted}
-            style={styles.linkText}
+            lineHeight={15}
+            style={styles.termsText}
           >
-            Terms of Use
-          </CustomText>{' '}
-          &{' '}
-          <CustomText
-            variant="regular"
-            color={COLORS.textSecondaryMuted}
-            style={styles.linkText}
-          >
-            Privacy Policy
+            By tapping next, you are agreeing to PlantID
           </CustomText>
-          .
-        </CustomText>
+          <View style={styles.termsLinksRow}>
+            <Pressable
+              onPress={() => setActiveLegalDocument('terms')}
+              hitSlop={6}
+              accessibilityRole="button"
+              accessibilityLabel="Terms of Use"
+            >
+              <CustomText
+                variant="regular"
+                size={11}
+                color={COLORS.textSecondaryMuted}
+                lineHeight={15}
+                style={styles.linkText}
+              >
+                Terms of Use
+              </CustomText>
+            </Pressable>
+            <CustomText
+              variant="regular"
+              size={11}
+              color={COLORS.textSecondaryMuted}
+              lineHeight={15}
+            >
+              {'  &  '}
+            </CustomText>
+            <Pressable
+              onPress={() => setActiveLegalDocument('privacy')}
+              hitSlop={6}
+              accessibilityRole="button"
+              accessibilityLabel="Privacy Policy"
+            >
+              <CustomText
+                variant="regular"
+                size={11}
+                color={COLORS.textSecondaryMuted}
+                lineHeight={15}
+                style={styles.linkText}
+              >
+                Privacy Policy
+              </CustomText>
+            </Pressable>
+            <CustomText
+              variant="regular"
+              size={11}
+              color={COLORS.textSecondaryMuted}
+              lineHeight={15}
+            >
+              .
+            </CustomText>
+          </View>
+        </View>
       </View>
+
+      {activeLegalDocument ? (
+        <BottomSheet
+          visible
+          title={LEGAL_CONTENT[activeLegalDocument].title}
+          content={LEGAL_CONTENT[activeLegalDocument].content}
+          onClose={() => setActiveLegalDocument(null)}
+        />
+      ) : null}
     </CustomScreen>
   );
 }

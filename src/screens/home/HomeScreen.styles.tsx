@@ -43,12 +43,16 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   premiumCard: {
+    height: 64,
     minHeight: 64,
     borderRadius: 12,
     backgroundColor: COLORS.premiumBackground,
     paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.md,
+    paddingVertical: 0,
     marginBottom: SPACING.sm,
+  },
+  premiumIcon: {
+    marginTop: SPACING.xs,
   },
   premiumTitle: {
     fontFamily: FONTS.sfProText.bold,

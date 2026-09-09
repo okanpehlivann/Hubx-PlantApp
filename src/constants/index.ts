@@ -11,8 +11,9 @@ import {
 } from './paywallData';
 import { CACHE_TIME_SECONDS } from './home';
 import { API_TIMEOUT_MS } from './api';
+import { LEGAL_CONTENT, LegalDocument } from './legal';
 
-export { COLORS, SIZES, SPACING, SCREEN_NAMES, STORAGE_KEYS, FONTS };
+export { COLORS, SIZES, SPACING, SCREEN_NAMES, STORAGE_KEYS, FONTS, LEGAL_CONTENT };
 export {
   ONBOARDING_SLIDES,
   PAYWALL_FEATURES,
@@ -21,3 +22,4 @@ export {
   API_TIMEOUT_MS,
 };
 export type { OnboardingSlide, PaywallFeature, PaywallPlan };
+export type { LegalDocument };

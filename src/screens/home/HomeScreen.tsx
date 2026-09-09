@@ -89,6 +89,7 @@ const HomeContent = ({
       />
       <SearchInput
         placeholder="Search for plants"
+        clearable
         returnKeyType="search"
         value={searchQuery}
         onChangeText={setSearchQuery}
@@ -101,7 +102,9 @@ const HomeContent = ({
       title="FREE Premium Available"
       description="Tap to upgrade your account!"
       showArrow
-      icon={<PremiumMessageIcon />}
+      icon={
+        <PremiumMessageIcon width={52} height={44} style={styles.premiumIcon} />
+      }
       style={styles.premiumCard}
       titleStyle={styles.premiumTitle}
       descriptionStyle={styles.premiumDescription}
@@ -242,6 +245,7 @@ export default function HomeScreen() {
     0,
     filteredCategories.length - (filteredCategories.length % 2 || 2),
   );
+
   const isSearchEmpty =
     normalizedSearchQuery.length > 0 &&
     !questionsLoading &&

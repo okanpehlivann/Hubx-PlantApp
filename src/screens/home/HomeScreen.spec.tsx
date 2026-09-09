@@ -249,7 +249,9 @@ describe('HomeScreen', () => {
 
     render(<HomeScreen />);
 
-    fireEvent.changeText(screen.getByLabelText('Search for plants'), 'asdasd');
+    const searchInput = screen.getByLabelText('Search for plants');
+
+    fireEvent.changeText(searchInput, 'asdasd');
 
     expect(screen.getByTestId('home-empty-state')).toBeOnTheScreen();
     expect(screen.getByText('No results found')).toBeOnTheScreen();

@@ -35,8 +35,16 @@ const styles = StyleSheet.create({
   },
   termsText: {
     textAlign: 'center',
+  },
+  termsContainer: {
+    alignItems: 'center',
     marginTop: SPACING.md,
     paddingHorizontal: SPACING.md,
+  },
+  termsLinksRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   linkText: {
     textDecorationLine: 'underline',

@@ -75,7 +75,7 @@ export default function PaywallScreen() {
 
       <View style={styles.panel}>
         <CustomText
-          variant="extraBold"
+          variant="bold"
           size={30}
           letterSpacing={0}
           color={COLORS.textOnDark}
@@ -94,6 +94,7 @@ export default function PaywallScreen() {
           variant="light"
           size={17}
           letterSpacing={0.38}
+          lineHeight={24}
           color={COLORS.textOnDarkMuted}
           style={styles.subheading}
         >

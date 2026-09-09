@@ -26,3 +26,5 @@ export { default as EmptyState } from './emptystate';
 export type { EmptyStateProps } from './emptystate';
 export { default as Skeleton } from './skeleton';
 export type { SkeletonProps } from './skeleton';
+export { default as BottomSheet } from './bottomsheet';
+export type { BottomSheetProps } from './bottomsheet';

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { render, screen } from '@testing-library/react-native';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 import { CustomScreen } from './CustomScreen';
 
 describe('CustomScreen', () => {
@@ -42,5 +42,27 @@ describe('CustomScreen', () => {
     expect(screen.getByText('Could not load plants')).toBeOnTheScreen();
     expect(screen.queryByLabelText('Loading')).toBeNull();
     expect(screen.queryByText('Screen content')).toBeNull();
+  });
+
+  it('keeps refreshable content scrollable when it is shorter than the viewport', () => {
+    const { UNSAFE_getByType } = render(
+      <CustomScreen scroll onRefresh={jest.fn()}>
+        <Text>Short content</Text>
+      </CustomScreen>,
+    );
+
+    fireEvent(UNSAFE_getByType(ScrollView), 'layout', {
+      nativeEvent: {
+        layout: { x: 0, y: 0, width: 375, height: 600 },
+      },
+    });
+
+    const scrollView = UNSAFE_getByType(ScrollView);
+    const contentStyle = StyleSheet.flatten(
+      scrollView.props.contentContainerStyle,
+    );
+
+    expect(contentStyle.minHeight).toBe(601);
+    expect(scrollView.props.overScrollMode).toBe('always');
   });
 });

@@ -31,4 +31,31 @@ describe('SearchInput', () => {
       '#ff00aa',
     );
   });
+
+  it('clears the value from the clear action', () => {
+    const onChangeText = jest.fn();
+
+    const { rerender } = render(
+      <SearchInput
+        placeholder="Search"
+        value="Monstera"
+        clearable
+        onChangeText={onChangeText}
+      />,
+    );
+
+    fireEvent.press(screen.getByRole('button', { name: 'Clear search' }));
+
+    rerender(
+      <SearchInput
+        placeholder="Search"
+        value=""
+        clearable
+        onChangeText={onChangeText}
+      />,
+    );
+
+    expect(onChangeText).toHaveBeenCalledWith('');
+    expect(screen.queryByRole('button', { name: 'Clear search' })).toBeNull();
+  });
 });
