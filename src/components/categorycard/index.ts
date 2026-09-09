@@ -9,4 +9,5 @@ export interface CategoryCardProps {
 }
 
 export { CategoryCard };
+export { default as CategoryCardsSkeleton } from './CategoryCardsSkeleton';
 export default CategoryCard;

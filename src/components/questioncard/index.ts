@@ -9,4 +9,5 @@ export interface QuestionCardProps {
 }
 
 export { QuestionCard };
+export { default as QuestionCardsSkeleton } from './QuestionCardsSkeleton';
 export default QuestionCard;

@@ -34,11 +34,18 @@ export default function OnboardingScreen() {
 
   const isLastSlide = activeIndex === ONBOARDING_SLIDES.length - 1;
   const phoneTop = width * 0.2;
+  const widthBasedPhoneHeight = width * 0.696 * (540 / 261);
 
-  const phoneHeight = Math.max(
-    width * 0.696 * (540 / 261),
-    careArtworkHeight - phoneTop + 4,
-  );
+  // Keep the phone at the design scale. The artwork container is only used
+  // as a maximum on short screens; using it as a minimum makes Android
+  // enlarge the image when the container reports an unexpectedly large size.
+  const phoneHeight =
+    careArtworkHeight > 0
+      ? Math.min(
+          widthBasedPhoneHeight,
+          Math.max(0, careArtworkHeight - phoneTop + 4),
+        )
+      : widthBasedPhoneHeight;
 
   const handleContinue = () => {
     if (isLastSlide) {

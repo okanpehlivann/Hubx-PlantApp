@@ -37,6 +37,8 @@ export const COLORS = {
   // Premium
   premiumBackground: '#24201A',
   premiumTitle: '#E4B046',
+  premiumTitleGradientStart: 'rgba(229, 201, 144, 1)',
+  premiumTitleGradientEnd: 'rgba(228, 176, 70, 1)',
   premiumDescription: '#F5C25B',
 
   // Home cards

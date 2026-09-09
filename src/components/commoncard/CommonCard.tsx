@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, View } from 'react-native';
 import { RightArrowIcon } from '@assets';
 import CustomText from '../customtext';
+import GradientText from '../gradienttext';
 import styles from './CommonCard.styles';
 import { CommonCardProps } from '.';
 
@@ -13,6 +14,7 @@ export const CommonCard: React.FC<CommonCardProps> = ({
   onPress,
   style,
   titleStyle,
+  titleGradientColors,
   descriptionStyle,
   arrowIcon,
 }) => {
@@ -21,14 +23,26 @@ export const CommonCard: React.FC<CommonCardProps> = ({
       onPress={onPress}
       disabled={!onPress}
       accessibilityRole={onPress ? 'button' : undefined}
+      accessibilityLabel={title}
       style={[styles.card, style]}
     >
       {icon ? <View style={styles.iconWrapper}>{icon}</View> : null}
 
       <View style={styles.textContainer}>
-        <CustomText variant="bold" size={16} lineHeight={21} style={titleStyle}>
-          {title}
-        </CustomText>
+        {titleGradientColors ? (
+          <GradientText colors={titleGradientColors} style={titleStyle}>
+            {title}
+          </GradientText>
+        ) : (
+          <CustomText
+            variant="bold"
+            size={16}
+            lineHeight={21}
+            style={titleStyle}
+          >
+            {title}
+          </CustomText>
+        )}
         {description ? (
           <CustomText
             variant="regular"

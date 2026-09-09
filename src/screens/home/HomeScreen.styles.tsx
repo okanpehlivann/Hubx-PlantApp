@@ -103,29 +103,6 @@ const styles = StyleSheet.create({
     paddingVertical: SPACING.md,
     paddingHorizontal: SPACING.sm,
   },
-  skeletonQuestionsRow: {
-    flexDirection: 'row',
-    gap: SPACING.md,
-    marginHorizontal: -SPACING.lg,
-    paddingHorizontal: SPACING.lg,
-    marginBottom: SPACING.xl,
-  },
-  skeletonQuestionCard: {
-    width: 240,
-    height: 160,
-    borderRadius: 16,
-  },
-  skeletonCategoryGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: SPACING.md,
-  },
-  skeletonCategoryCard: {
-    width: '47%',
-    height: 178,
-    borderRadius: 16,
-  },
 });
 
 export default styles;

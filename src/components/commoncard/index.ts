@@ -11,6 +11,7 @@ export interface CommonCardProps {
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
+  titleGradientColors?: readonly [string, string];
   descriptionStyle?: StyleProp<TextStyle>;
 }
 

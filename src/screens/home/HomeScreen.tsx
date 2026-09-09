@@ -14,9 +14,10 @@ import {
   CustomText,
   EmptyState,
   ErrorState,
+  CategoryCardsSkeleton,
   QuestionCard,
+  QuestionCardsSkeleton,
   SearchInput,
-  Skeleton,
 } from '@components';
 import styles from './HomeScreen.styles';
 import { COLORS, SPACING } from '@constants';
@@ -25,22 +26,6 @@ import { useGetCategoriesQuery, useGetQuestionsQuery } from '@api';
 import type { HomeContentProps } from '@types';
 import { useHomeTourTargets } from '@context';
 import HomeFeatureTour from './HomeFeatureTour';
-
-const QuestionsSkeleton = () => (
-  <View testID="questions-skeleton" style={styles.skeletonQuestionsRow}>
-    <Skeleton style={styles.skeletonQuestionCard} />
-    <Skeleton style={styles.skeletonQuestionCard} />
-  </View>
-);
-
-const CategoriesSkeleton = () => (
-  <View testID="categories-skeleton" style={styles.skeletonCategoryGrid}>
-    <Skeleton style={styles.skeletonCategoryCard} />
-    <Skeleton style={styles.skeletonCategoryCard} />
-    <Skeleton style={styles.skeletonCategoryCard} />
-    <Skeleton style={styles.skeletonCategoryCard} />
-  </View>
-);
 
 const HomeContent = ({
   width,
@@ -110,6 +95,10 @@ const HomeContent = ({
 
     <CommonCard
       title="FREE Premium Available"
+      titleGradientColors={[
+        COLORS.premiumTitleGradientStart,
+        COLORS.premiumTitleGradientEnd,
+      ]}
       description="Tap to upgrade your account!"
       showArrow
       icon={
@@ -149,7 +138,7 @@ const HomeContent = ({
                 style={styles.sectionState}
               />
             ) : questionsLoading ? (
-              <QuestionsSkeleton />
+              <QuestionCardsSkeleton />
             ) : (
               <ScrollView
                 horizontal
@@ -182,7 +171,7 @@ const HomeContent = ({
                 style={styles.sectionState}
               />
             ) : categoriesLoading ? (
-              <CategoriesSkeleton />
+              <CategoryCardsSkeleton />
             ) : (
               <View style={styles.categoryGrid}>
                 {filteredCategories.map((category, index) => (
