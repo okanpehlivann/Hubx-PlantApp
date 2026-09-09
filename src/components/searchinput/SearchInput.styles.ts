@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
   },
+  voiceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  inputWithVoice: {
+    flex: 1,
+  },
   iconContainer: {
     width: 44,
     height: 44,
@@ -33,6 +40,40 @@ const styles = StyleSheet.create({
     height: 44,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  voiceButton: {
+    width: 44,
+    height: 44,
+    marginLeft: 8,
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderWidth: 0.2,
+    borderColor: COLORS.borderStrong,
+    position: 'relative',
+  },
+  voiceButtonActive: {
+    backgroundColor: 'rgba(40, 175, 110, 0.2)',
+    borderColor: COLORS.primary,
+    borderWidth: 1.2,
+  },
+  voicePulse: {
+    position: 'absolute',
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 2,
+    borderColor: COLORS.primary,
+  },
+  voiceListeningDot: {
+    position: 'absolute',
+    top: 2,
+    right: 2,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#E5493D',
   },
 });
 

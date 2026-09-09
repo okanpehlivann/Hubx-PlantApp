@@ -35,6 +35,10 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>PlantApp uses the microphone to convert your voice into plant searches.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>PlantApp uses speech recognition to fill your plant search.</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

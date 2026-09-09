@@ -33,6 +33,9 @@
 		86ED4C75B769487D963931F3 /* SF-Pro-Text-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F71F5D2CA4E9E8030DACC /* SF-Pro-Text-BlackItalic.otf */; };
 		8F3720E54D3C4618872714EF /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08A96495C77F4F5CAB2543A3 /* Rubik-SemiBoldItalic.ttf */; };
 		94A99A806A784AFEB160914D /* SF-Pro-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0379D9E872B148B9A2A7C833 /* SF-Pro-Text-MediumItalic.otf */; };
+		A10000000000000000000001 /* SpeechToTextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* SpeechToTextModule.m */; };
+		A10000000000000000000003 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000004 /* Speech.framework */; };
+		A10000000000000000000005 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000006 /* AVFoundation.framework */; };
 		A3E8352E231F407AAFEB314A /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8ADB9617136245ECA89DED10 /* SF-Pro-Text-Light.otf */; };
 		B33D0CA6DB13454EB29CCB4B /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D837259BFBCA41179A2DA98B /* Rubik-MediumItalic.ttf */; };
 		C741AB05939E4FB3BBCD3D55 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB0A047EBB34C2BB4D1D47E /* SF-Pro-Text-Regular.otf */; };
@@ -77,6 +80,9 @@
 		896065AAB2D8429B9967C890 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Medium.ttf"; path = "../src/assets/fonts/Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		8ADB9617136245ECA89DED10 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Light.otf"; path = "../src/assets/fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		99A15CC82B934814A95436F6 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-SemiBold.ttf"; path = "../src/assets/fonts/Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		A10000000000000000000002 /* SpeechToTextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeechToTextModule.m; path = PlantApp/SpeechToTextModule.m; sourceTree = "<group>"; };
+		A10000000000000000000004 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		A10000000000000000000006 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A785C70F82454A61811B0016 /* Rubik-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Light.ttf"; path = "../src/assets/fonts/Rubik-Light.ttf"; sourceTree = "<group>"; };
 		AC2D1439081E4ED49973CA55 /* SF-Pro-Text-HeavyItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-HeavyItalic.otf"; path = "../src/assets/fonts/SF-Pro-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
 		B292FD2F28C048A487F19D56 /* SF-Pro-Text-Ultralight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Ultralight.otf"; path = "../src/assets/fonts/SF-Pro-Text-Ultralight.otf"; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10000000000000000000003 /* Speech.framework in Frameworks */,
+				A10000000000000000000005 /* AVFoundation.framework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-PlantApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +116,7 @@
 			children = (
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
+				A10000000000000000000002 /* SpeechToTextModule.m */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
@@ -118,6 +127,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A10000000000000000000004 /* Speech.framework */,
+				A10000000000000000000006 /* AVFoundation.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-PlantApp.a */,
 			);
@@ -383,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10000000000000000000001 /* SpeechToTextModule.m in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,14 @@
 import type { LaunchScreenProps } from './launchscreen';
 import type { HomeContentProps } from './api/homescreen';
 import type {
+  SpeechToTextStatus,
+  SpeechToTextError,
+  NativeSpeechToTextModule,
+  SpeechEvent,
+  UseSpeechToTextOptions,
+  UseSpeechToTextResult,
+} from './speechtotext';
+import type {
   GetStartedNavigationProp,
   MainTabParamList,
   OnboardingNavigationProp,
@@ -16,6 +24,12 @@ export type {
   RootStackParamList,
   RootNavigatorProps,
   HomeContentProps,
+  SpeechToTextStatus,
+  SpeechToTextError,
+  NativeSpeechToTextModule,
+  SpeechEvent,
+  UseSpeechToTextOptions,
+  UseSpeechToTextResult,
 };
 
 export type {

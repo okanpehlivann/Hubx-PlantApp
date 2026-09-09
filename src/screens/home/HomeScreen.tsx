@@ -90,6 +90,8 @@ const HomeContent = ({
       <SearchInput
         placeholder="Search for plants"
         clearable
+        voiceEnabled
+        speechLocale="tr-TR"
         returnKeyType="search"
         value={searchQuery}
         onChangeText={setSearchQuery}
