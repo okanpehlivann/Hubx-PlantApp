@@ -1,3 +1,5 @@
+import type { RefObject } from 'react';
+import type { ViewInstance } from 'react-native';
 import { Question } from './question';
 import { Category } from './category';
 
@@ -13,4 +15,7 @@ export type HomeContentProps = {
   categoriesError?: unknown;
   filteredCategories: Category[];
   lastCategoryRowStartIndex: number;
+  searchTargetRef: RefObject<ViewInstance | null>;
+  voiceButtonRef: RefObject<ViewInstance | null>;
+  questionsTargetRef: RefObject<ViewInstance | null>;
 };

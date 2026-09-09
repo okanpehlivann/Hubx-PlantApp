@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Linking,
   ScrollView,
   useWindowDimensions,
   View,
   Image,
+  type ViewInstance,
 } from 'react-native';
 import {
   CategoryCard,
@@ -22,6 +23,8 @@ import { COLORS, SPACING } from '@constants';
 import { IMAGES, PremiumMessageIcon } from '@assets';
 import { useGetCategoriesQuery, useGetQuestionsQuery } from '@api';
 import type { HomeContentProps } from '@types';
+import { useHomeTourTargets } from '@context';
+import HomeFeatureTour from './HomeFeatureTour';
 
 const QuestionsSkeleton = () => (
   <View testID="questions-skeleton" style={styles.skeletonQuestionsRow}>
@@ -51,6 +54,9 @@ const HomeContent = ({
   categoriesError,
   filteredCategories,
   lastCategoryRowStartIndex,
+  searchTargetRef,
+  voiceButtonRef,
+  questionsTargetRef,
 }: HomeContentProps) => (
   <>
     <View style={styles.header}>
@@ -88,6 +94,8 @@ const HomeContent = ({
         accessible={false}
       />
       <SearchInput
+        inputContainerRef={searchTargetRef}
+        voiceButtonRef={voiceButtonRef}
         placeholder="Search for plants"
         clearable
         voiceEnabled
@@ -123,7 +131,7 @@ const HomeContent = ({
         {(questionsLoading ||
           questionsError ||
           filteredQuestions.length > 0) && (
-          <>
+          <View ref={questionsTargetRef} collapsable={false}>
             <CustomText
               variant="medium"
               size={15}
@@ -161,7 +169,7 @@ const HomeContent = ({
                 ))}
               </ScrollView>
             )}
-          </>
+          </View>
         )}
 
         {(categoriesLoading ||
@@ -201,6 +209,11 @@ const HomeContent = ({
 
 export default function HomeScreen() {
   const [searchQuery, setSearchQuery] = useState('');
+  const searchTargetRef = useRef<ViewInstance>(null);
+  const voiceButtonRef = useRef<ViewInstance>(null);
+  const questionsTargetRef = useRef<ViewInstance>(null);
+  const { scanButtonRef, isAvailable: isHomeTourAvailable } =
+    useHomeTourTargets();
   const { width } = useWindowDimensions();
   const {
     isLoading: categoriesLoading,
@@ -258,27 +271,42 @@ export default function HomeScreen() {
     filteredCategories.length === 0;
 
   return (
-    <CustomScreen
-      scroll
-      edges={['top']}
-      contentContainerStyle={styles.container}
-      statusBarStyle="dark-content"
-      refreshing={isRefreshing}
-      onRefresh={handleRefresh}
-    >
-      <HomeContent
-        width={width}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        isSearchEmpty={isSearchEmpty}
-        questionsLoading={questionsLoading}
-        questionsError={questionsError}
-        filteredQuestions={filteredQuestions}
-        categoriesLoading={categoriesLoading}
-        categoriesError={categoriesError}
-        filteredCategories={filteredCategories}
-        lastCategoryRowStartIndex={lastCategoryRowStartIndex}
+    <>
+      <CustomScreen
+        scroll
+        edges={['top']}
+        contentContainerStyle={styles.container}
+        statusBarStyle="dark-content"
+        refreshing={isRefreshing}
+        onRefresh={handleRefresh}
+      >
+        <HomeContent
+          width={width}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          isSearchEmpty={isSearchEmpty}
+          questionsLoading={questionsLoading}
+          questionsError={questionsError}
+          filteredQuestions={filteredQuestions}
+          categoriesLoading={categoriesLoading}
+          categoriesError={categoriesError}
+          filteredCategories={filteredCategories}
+          lastCategoryRowStartIndex={lastCategoryRowStartIndex}
+          searchTargetRef={searchTargetRef}
+          voiceButtonRef={voiceButtonRef}
+          questionsTargetRef={questionsTargetRef}
+        />
+      </CustomScreen>
+
+      <HomeFeatureTour
+        enabled={isHomeTourAvailable}
+        ready={!questionsLoading && !categoriesLoading}
+        includeQuestions={filteredQuestions.length > 0}
+        searchTargetRef={searchTargetRef}
+        voiceButtonRef={voiceButtonRef}
+        questionsTargetRef={questionsTargetRef}
+        scanButtonRef={scanButtonRef}
       />
-    </CustomScreen>
+    </>
   );
 }

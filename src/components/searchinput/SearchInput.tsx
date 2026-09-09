@@ -10,6 +10,8 @@ import { SearchInputProps } from '.';
 
 export const SearchInput: React.FC<SearchInputProps> = ({
   icon,
+  inputContainerRef,
+  voiceButtonRef,
   containerStyle,
   inputStyle,
   clearable = false,
@@ -106,7 +108,14 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   };
 
   const inputContent = (
-    <View style={[styles.container, voiceEnabled ? styles.inputWithVoice : containerStyle]}>
+    <View
+      ref={inputContainerRef}
+      collapsable={inputContainerRef ? false : undefined}
+      style={[
+        styles.container,
+        voiceEnabled ? styles.inputWithVoice : containerStyle,
+      ]}
+    >
       <View style={styles.iconContainer}>
         {icon ?? <SearchIcon width={20} height={20} />}
       </View>
@@ -149,6 +158,8 @@ export const SearchInput: React.FC<SearchInputProps> = ({
     <View style={[styles.voiceRow, containerStyle]}>
       {inputContent}
       <Pressable
+        ref={voiceButtonRef}
+        collapsable={false}
         style={({ pressed }) => [
           styles.voiceButton,
           (pressed || isListening || isVoicePressing) && styles.voiceButtonActive,

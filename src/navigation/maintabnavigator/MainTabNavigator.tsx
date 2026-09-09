@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { type RefObject } from 'react';
 import {
   createBottomTabNavigator,
   type BottomTabBarButtonProps,
 } from '@react-navigation/bottom-tabs';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, type ViewInstance } from 'react-native';
 import {
   TabDiagnoseIcon,
   TabGardenIcon,
@@ -20,6 +20,7 @@ import {
   ScanScreen,
 } from '@screens';
 import type { MainTabParamList } from '@types';
+import { HomeTourProvider, useHomeTourTargets } from '@context';
 import styles from './MainTabNavigator.styles';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -71,13 +72,19 @@ const TabBarButton = ({
   );
 };
 
+type ScanTabButtonProps = BottomTabBarButtonProps & {
+  tourTargetRef: RefObject<ViewInstance | null>;
+};
+
 const ScanTabButton = ({
   onPress,
   onLongPress,
   accessibilityState,
   accessibilityLabel,
   testID,
-}: BottomTabBarButtonProps) => {
+  tourTargetRef,
+}: ScanTabButtonProps) => {
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -89,7 +96,11 @@ const ScanTabButton = ({
       android_ripple={{ color: 'transparent' }}
       style={styles.scanTabButton}
     >
-      <View style={styles.scanButtonOuter}>
+      <View
+        ref={tourTargetRef}
+        collapsable={false}
+        style={styles.scanButtonOuter}
+      >
         <View style={styles.scanButtonInner}>
           <TabScanIcon width={32} height={32} />
         </View>
@@ -98,7 +109,17 @@ const ScanTabButton = ({
   );
 };
 
-export default function MainTabNavigator() {
+const ConnectedScanTabButton = (props: BottomTabBarButtonProps) => {
+  const { scanButtonRef } = useHomeTourTargets();
+
+  return <ScanTabButton {...props} tourTargetRef={scanButtonRef} />;
+};
+
+const renderScanTabButton = (props: BottomTabBarButtonProps) => (
+  <ConnectedScanTabButton {...props} />
+);
+
+const MainTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -132,7 +153,7 @@ export default function MainTabNavigator() {
         name="Scan"
         component={ScanScreen}
         options={{
-          tabBarButton: ScanTabButton,
+          tabBarButton: renderScanTabButton,
           tabBarItemStyle: styles.scanTabItem,
           tabBarLabel: hideTabLabel,
         }}
@@ -154,5 +175,13 @@ export default function MainTabNavigator() {
         }}
       />
     </Tab.Navigator>
+  );
+};
+
+export default function MainTabNavigator() {
+  return (
+    <HomeTourProvider>
+      <MainTabs />
+    </HomeTourProvider>
   );
 }

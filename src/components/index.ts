@@ -28,3 +28,9 @@ export { default as Skeleton } from './skeleton';
 export type { SkeletonProps } from './skeleton';
 export { default as BottomSheet } from './bottomsheet';
 export type { BottomSheetProps } from './bottomsheet';
+export { default as FeatureTour } from './featuretour';
+export type {
+  FeatureTourProps,
+  FeatureTourStep,
+  FeatureTourPlacement,
+} from './featuretour';
