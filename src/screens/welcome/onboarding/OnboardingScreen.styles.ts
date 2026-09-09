@@ -33,14 +33,14 @@ const styles = StyleSheet.create({
   },
   phoneImage: {
     position: 'absolute',
-    aspectRatio: 261 / 540,
+    aspectRatio: 872 / 1804,
   },
   artwork: {
     position: 'absolute',
-    top: 16,
-    right: 0,
-    width: '100%',
-    aspectRatio: 375 / 270,
+    top: 8,
+    right: '5%',
+    width: '38%',
+    aspectRatio: 233 / 255,
   },
   slideHeader: {
     marginTop: SPACING.md,

@@ -24,10 +24,9 @@ export default function GetStartedScreen() {
     imageStyle,
     onLayout: handleArtworkLayout,
   } = useArtworkLayout({
-    width: 375,
-    frameHeight: 499,
-    imageHeight: 547,
-    imageTop: -5,
+    width: 1038,
+    frameHeight: 1515,
+    imageHeight: 1515,
   });
 
   return (

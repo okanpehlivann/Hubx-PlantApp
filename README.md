@@ -2,9 +2,11 @@
 
 ## 🎥 Demo Video
 
-> **Coming soon** — this section is reserved for the final screen recording.
->
-> Add the video link here when the recording is ready.
+<video src="./docs/hubx-plantapp.mp4" controls muted playsinline width="720">
+  Your browser does not support embedded videos. [Download the demo video](./docs/hubx-plantapp.mp4).
+</video>
+
+[Download the demo video](./docs/hubx-plantapp.mp4)
 
 ## Overview
 
@@ -238,5 +240,4 @@ More detailed testing conventions are documented in
   provided screens.
 - The API is a dummy API supplied for the case study, so production data
   persistence and authentication are outside the scope of this project.
-- The video section at the top is intentionally left as a placeholder for the
-  final walkthrough recording.
+- The demo walkthrough is available in the video section at the top.

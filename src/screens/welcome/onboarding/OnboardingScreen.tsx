@@ -24,21 +24,18 @@ export default function OnboardingScreen() {
     frameStyle,
     imageStyle,
     onLayout: handleArtworkLayout,
-    window: { width, height },
+    window: { width },
   } = useArtworkLayout({
-    width: 375,
-    frameHeight: 550,
-    imageHeight: 683,
-    imageTop: -20,
+    width: 929,
+    frameHeight: 1692,
+    imageHeight: 1692,
   });
 
   const isLastSlide = activeIndex === ONBOARDING_SLIDES.length - 1;
   const phoneTop = width * 0.2;
-  const widthBasedPhoneHeight = width * 0.696 * (540 / 261);
+  const phoneWidth = width * 0.76;
+  const widthBasedPhoneHeight = phoneWidth * (1804 / 872);
 
-  // Keep the phone at the design scale. The artwork container is only used
-  // as a maximum on short screens; using it as a minimum makes Android
-  // enlarge the image when the container reports an unexpectedly large size.
   const phoneHeight =
     careArtworkHeight > 0
       ? Math.min(
@@ -91,14 +88,20 @@ export default function OnboardingScreen() {
         {item.backgroundImage && (
           <Image
             source={item.backgroundImage}
-            style={[styles.backgroundImage, { height: height * 0.6 }]}
+            style={[
+              styles.backgroundImage,
+              { height: width * (517 / 375) },
+            ]}
             resizeMode="cover"
           />
         )}
         {item.artwork ? (
           <Image
             source={item.image}
-            style={[styles.phoneImage, { top: phoneTop, height: phoneHeight }]}
+            style={[
+              styles.phoneImage,
+              { top: phoneTop, width: phoneWidth, height: phoneHeight },
+            ]}
             resizeMode="contain"
           />
         ) : (
