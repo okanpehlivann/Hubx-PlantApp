@@ -2,7 +2,7 @@
 
 ## 🎥 Demo Video
 
-..
+https://github.com/user-attachments/assets/c82747f6-12dc-46b4-b1d1-b813d595b500
 
 ## Overview
 
