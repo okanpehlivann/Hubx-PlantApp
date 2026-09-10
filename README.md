@@ -4,6 +4,10 @@
 
 https://github.com/user-attachments/assets/c82747f6-12dc-46b4-b1d1-b813d595b500
 
+https://github.com/user-attachments/assets/36ae67eb-fef6-45ac-81a0-f943cb0bdf06
+
+
+
 ## Overview
 
 PlantApp is a React Native plant discovery and identification experience built
