@@ -2,11 +2,7 @@
 
 ## 🎥 Demo Video
 
-<video src="./docs/hubx-plantapp.mp4" controls muted playsinline width="720">
-  Your browser does not support embedded videos. [Download the demo video](./docs/hubx-plantapp.mp4).
-</video>
-
-[Download the demo video](./docs/hubx-plantapp.mp4)
+..
 
 ## Overview
 
@@ -23,16 +19,16 @@ native platform integrations where they improve the user experience.
 
 The original case-study requirements are covered as follows:
 
-| Requirement | Implementation |
-| --- | --- |
-| React / React Native | React Native `0.87.1` application for iOS and Android |
-| TypeScript and Redux | TypeScript throughout the application with Redux Toolkit and typed hooks |
-| Pixel-accurate, responsive UI | Reusable design-system components, shared constants, custom fonts and responsive layouts based on the provided Figma design |
-| API-driven data | RTK Query endpoints for categories and questions |
-| Onboarding flow | Welcome, onboarding slides and paywall screens |
-| Home flow | Home content, horizontal plant guides, categories and bottom tab navigation |
-| Persisted onboarding completion | AsyncStorage persistence prevents completed users from re-entering onboarding |
-| Git and maintainability | Meaningful names, typed props, feature-oriented folders and colocated tests |
+| Requirement                     | Implementation                                                                                                              |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| React / React Native            | React Native `0.87.1` application for iOS and Android                                                                       |
+| TypeScript and Redux            | TypeScript throughout the application with Redux Toolkit and typed hooks                                                    |
+| Pixel-accurate, responsive UI   | Reusable design-system components, shared constants, custom fonts and responsive layouts based on the provided Figma design |
+| API-driven data                 | RTK Query endpoints for categories and questions                                                                            |
+| Onboarding flow                 | Welcome, onboarding slides and paywall screens                                                                              |
+| Home flow                       | Home content, horizontal plant guides, categories and bottom tab navigation                                                 |
+| Persisted onboarding completion | AsyncStorage persistence prevents completed users from re-entering onboarding                                               |
+| Git and maintainability         | Meaningful names, typed props, feature-oriented folders and colocated tests                                                 |
 
 ## Implemented Features
 
