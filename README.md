@@ -1,4 +1,4 @@
-# PlantApp – React Native Case Study
+# PlantApp — React Native Case Study
 
 ## 🎥 Demo Video
 
@@ -15,29 +15,29 @@
 
 ## Overview
 
-PlantApp is a React Native plant discovery and identification experience built
-from the provided case-study design. The application includes an onboarding
-flow, a paywall screen and a data-driven home screen for discovering plant
-guides and categories.
+PlantApp is a React Native plant discovery and identification app built from
+the provided case-study design. It includes an onboarding flow, a paywall and
+a data-driven home experience for exploring plant guides, questions and
+categories.
 
-The implementation is written in TypeScript and follows a reusable,
-component-based structure with typed navigation, Redux state management and
-native platform integrations where they improve the user experience.
+The project is written in TypeScript and uses reusable components, typed
+navigation, Redux Toolkit and native platform integrations where they improve
+the experience.
 
 ## Assignment Requirements
 
 The original case-study requirements are covered as follows:
 
-| Requirement                     | Implementation                                                                                                              |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| React / React Native            | React Native `0.87.1` application for iOS and Android                                                                       |
-| TypeScript and Redux            | TypeScript throughout the application with Redux Toolkit and typed hooks                                                    |
-| Pixel-accurate, responsive UI   | Reusable design-system components, shared constants, custom fonts and responsive layouts based on the provided Figma design |
-| API-driven data                 | RTK Query endpoints for categories and questions                                                                            |
-| Onboarding flow                 | Welcome, onboarding slides and paywall screens                                                                              |
-| Home flow                       | Home content, horizontal plant guides, categories and bottom tab navigation                                                 |
-| Persisted onboarding completion | AsyncStorage persistence prevents completed users from re-entering onboarding                                               |
-| Git and maintainability         | Meaningful names, typed props, feature-oriented folders and colocated tests                                                 |
+| Requirement                     | Implementation                                                                           |
+| ------------------------------- | ---------------------------------------------------------------------------------------- |
+| React / React Native            | React Native `0.87.1` app for iOS and Android                                            |
+| TypeScript and Redux            | TypeScript, Redux Toolkit and typed Redux hooks                                          |
+| Pixel-accurate, responsive UI   | Reusable design-system components, shared constants, custom fonts and responsive layouts |
+| API-driven data                 | RTK Query endpoints for categories and questions                                         |
+| Onboarding flow                 | Welcome, onboarding slides and paywall screens                                           |
+| Home flow                       | Home content, plant guides, categories and bottom-tab navigation                         |
+| Persisted onboarding completion | AsyncStorage persistence for completed onboarding                                        |
+| Git and maintainability         | Typed props, feature-oriented folders, reusable components and colocated tests           |
 
 ## Implemented Features
 
@@ -52,12 +52,12 @@ The original case-study requirements are covered as follows:
 - Pull-to-refresh on the home content
 - Search filtering for plant questions and categories
 - Persistent onboarding state across app launches
-- Error boundary with a recoverable home action
+- Recoverable application-level error boundary
 
 ### Additional enhancements
 
-These items were not required as separate deliverables in the case description,
-but were added to make the application more complete and reusable:
+The following improvements were added to make the app more complete and
+reusable:
 
 - Shared `BottomSheet` component for Terms of Use and Privacy Policy content
 - Clearable search input with keyboard-friendly behaviour
@@ -69,9 +69,7 @@ but were added to make the application more complete and reusable:
 - Accessibility labels and screen-reader announcements for interactive features
 - Reusable `@context` alias and `HomeTourContext` for feature-tour targets
 
-Calling these out separately keeps the original requirements easy to verify
-while also showing the additional product and engineering decisions made
-during implementation.
+### Feature previews
 
 <table>
   <tr>
@@ -79,23 +77,23 @@ during implementation.
     <th align="center">Open Camera</th>
     <th align="center">Native Bridge Mic</th>
     <th align="center">Tour Guide</th>
-    <th align="center">Bottomsheet</th>
+    <th align="center">Bottom Sheet</th>
   </tr>
   <tr valign="middle">
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/888f1d56-18cf-4fe2-b080-e569cfbe96e3" alt="error-boundary" height="360" />
+      <img src="https://github.com/user-attachments/assets/888f1d56-18cf-4fe2-b080-e569cfbe96e3" alt="Error boundary fallback" height="360" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/40e665a9-399e-40be-a11e-dd85d1206f28" alt="open-camera" height="80" />
+      <img src="https://github.com/user-attachments/assets/40e665a9-399e-40be-a11e-dd85d1206f28" alt="Camera flow" height="80" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/9951e226-3a22-4407-9fd4-621db38552d4" alt="native-bridge-mic" height="60" />
+      <img src="https://github.com/user-attachments/assets/9951e226-3a22-4407-9fd4-621db38552d4" alt="Native speech bridge" height="60" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/1973b70f-dc90-4b23-b0af-7665698ff472" alt="tour-guide" height="360" />
+      <img src="https://github.com/user-attachments/assets/1973b70f-dc90-4b23-b0af-7665698ff472" alt="Guided feature tour" height="360" />
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/d9eec785-dc17-4042-a18b-f97ab82250f2" alt="bottomsheet" height="360" />
+      <img src="https://github.com/user-attachments/assets/d9eec785-dc17-4042-a18b-f97ab82250f2" alt="Bottom sheet" height="360" />
     </td>
   </tr>
 </table>
@@ -112,8 +110,8 @@ Launch
   → Home
 ```
 
-After the onboarding flow is completed, the status is persisted locally and
-the user is taken directly to the main application on future launches.
+After onboarding is completed, its status is saved locally. Future launches
+open the main application directly.
 
 ### Home experience
 
@@ -125,7 +123,7 @@ Home
   → Open the scan flow from the camera tab button
 ```
 
-The Home feature tour is shown once and its completion state is also persisted
+The Home feature tour is shown once and its completion state is also saved
 locally.
 
 ## Technical Architecture
@@ -139,7 +137,7 @@ locally.
 
 ### Navigation
 
-- A root navigator selects the onboarding or main flow after local state
+- The root navigator selects the onboarding or main flow after local-state
   hydration.
 - Native stack navigation handles the onboarding and main stacks.
 - Bottom tabs provide the main application navigation.
@@ -153,9 +151,9 @@ Speech recognition is exposed through a small shared React Native API:
 - JavaScript: `useSpeechToText` subscribes to native events and exposes a
   platform-independent hook API
 
-The microphone permission declarations are included in the iOS
-`Info.plist` and Android manifest. Voice search is best tested on a physical
-device because simulator microphone and speech-service behaviour can vary.
+Microphone permissions are declared in the iOS `Info.plist` and Android
+manifest. Voice search is best tested on a physical device because simulator
+microphone and speech-service behaviour can vary.
 
 ### Guided feature tour
 
@@ -191,10 +189,6 @@ android/          Android native project and speech module
 
 The app reads its base URL from `BASE_URL` in `.env`:
 
-```env
-BASE_URL=https://dummy-api-jtg6bessta-ey.a.run.app
-```
-
 Available endpoints:
 
 - Categories: `GET /getCategories`
@@ -213,14 +207,16 @@ Available endpoints:
 - Android Studio and an Android SDK for Android development
 - A configured React Native development environment
 
-Install JavaScript dependencies from the project root:
+### Install dependencies
+
+From the project root, install the JavaScript dependencies:
 
 ```sh
 npm install
 ```
 
-Make sure `.env` contains the API base URL shown above before starting the
-application.
+Verify that the root `.env` file contains the API base URL shown above before
+starting the application.
 
 ### Start Metro
 
@@ -256,6 +252,8 @@ npm run ios
 The project uses Jest and React Native Testing Library. Tests focus on
 observable behaviour, state transitions, API contracts and user interactions.
 
+Run the test suite and quality checks with:
+
 ```sh
 npm test -- --runInBand
 npm run test:ci
@@ -263,5 +261,4 @@ npm run typecheck
 npm run lint
 ```
 
-More detailed testing conventions are documented in
-[`TESTING.md`](./TESTING.md).
+For detailed testing conventions, see [`TESTING.md`](./TESTING.md).
