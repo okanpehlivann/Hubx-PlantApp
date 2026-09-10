@@ -67,7 +67,10 @@ reusable:
 - Home-only guided feature tour for search, voice search, plant guides and scan
 - Custom spotlight tour built with React Native `Modal` and `react-native-svg`
 - Accessibility labels and screen-reader announcements for interactive features
-- Reusable `@context` alias and `HomeTourContext` for feature-tour targets
+- Cleaner absolute imports through shared `@` aliases such as `@components`,
+  `@screens`, `@store`, `@api` and `@context`, configured in TypeScript and
+  Babel
+- Reusable `HomeTourContext` for feature-tour targets
 
 ### Feature previews
 
