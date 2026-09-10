@@ -24,7 +24,7 @@ export const CustomScreen: React.FC<CustomScreenProps> = ({
   scroll = false,
   loading = false,
   error,
-  errorMessage = 'Hay aksi, bir hata oluştu.',
+  errorMessage = 'Oops, something went wrong.',
   errorIcon,
   refreshing = false,
   onRefresh,

@@ -6,6 +6,6 @@ export const CAMERA_OPTIONS: CameraOptions = {
   saveToPhotos: false,
 };
 
-export const CAMERA_PERMISSION_TITLE = 'Kamera İzni Gerekli';
+export const CAMERA_PERMISSION_TITLE = 'Camera Permission Required';
 export const CAMERA_PERMISSION_MESSAGE =
-  'PlantApp’in kamerayı kullanabilmesi için telefon ayarlarından kamera iznini vermen gerekiyor.';
+  'PlantApp needs access to your camera. Please enable camera permission in your phone settings.';

@@ -34,13 +34,13 @@ export const useCamera = (): UseCameraResult => {
   );
 
   const showSettingsAlert = useCallback(() => {
-    Alert.alert(CAMERA_PERMISSION_TITLE, CAMERA_PERMISSION_MESSAGE, [
+      Alert.alert(CAMERA_PERMISSION_TITLE, CAMERA_PERMISSION_MESSAGE, [
       {
-        text: 'Vazgeç',
+        text: 'Cancel',
         style: 'cancel',
       },
       {
-        text: 'Ayarlara Git',
+        text: 'Open Settings',
         onPress: () => {
           updatePermissionStatus('unknown');
           Linking.openSettings().catch(() => undefined);
@@ -107,7 +107,7 @@ export const useCamera = (): UseCameraResult => {
       }
 
       if (response.errorCode && response.errorCode !== 'permission') {
-        setError(response.errorMessage ?? 'Kamera açılamadı.');
+        setError(response.errorMessage ?? 'Unable to open the camera.');
       }
 
       return response;
@@ -115,7 +115,7 @@ export const useCamera = (): UseCameraResult => {
       const message =
         caughtError instanceof Error
           ? caughtError.message
-          : 'Kamera açılamadı.';
+          : 'Unable to open the camera.';
       setError(message);
       return null;
     } finally {

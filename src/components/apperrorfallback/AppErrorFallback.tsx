@@ -103,7 +103,7 @@ export const AppErrorFallback: React.FC<AppErrorFallbackProps> = ({
           color={COLORS.textPrimary}
           style={styles.title}
         >
-          Bir şeyler ters gitti
+          Something went wrong
         </CustomText>
         <CustomText
           variant="regular"
@@ -112,12 +112,12 @@ export const AppErrorFallback: React.FC<AppErrorFallbackProps> = ({
           color={COLORS.textSecondary}
           style={styles.message}
         >
-          Uygulama beklenmeyen bir hatayla karşılaştı. Ana sayfaya dönerek devam
-          edebilirsin.
+          The app encountered an unexpected error. You can return to the home
+          screen and continue.
         </CustomText>
 
         <CustomButton
-          title="Ana Sayfaya Git"
+          title="Go to Home"
           onPress={onGoHome}
           style={styles.homeButton}
         />

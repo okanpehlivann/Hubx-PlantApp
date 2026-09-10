@@ -79,14 +79,14 @@ describe('useCamera', () => {
     expect(mockRequest).toHaveBeenCalledWith(PERMISSIONS.IOS.CAMERA);
     expect(mockLaunchCamera).not.toHaveBeenCalled();
     expect(alertSpy).toHaveBeenCalledWith(
-      'Kamera İzni Gerekli',
-      'PlantApp’in kamerayı kullanabilmesi için telefon ayarlarından kamera iznini vermen gerekiyor.',
+      'Camera Permission Required',
+      'PlantApp needs access to your camera. Please enable camera permission in your phone settings.',
       expect.any(Array),
     );
 
     const buttons = alertSpy.mock.calls[0][2];
     const settingsButton = buttons?.find(
-      button => button.text === 'Ayarlara Git',
+      button => button.text === 'Open Settings',
     );
 
     await act(async () => {

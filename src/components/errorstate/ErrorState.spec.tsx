@@ -8,7 +8,7 @@ describe('ErrorState', () => {
     render(<ErrorState />);
 
     expect(screen.getByRole('alert')).toBeOnTheScreen();
-    expect(screen.getByText('Hay aksi, bir hata oluştu.')).toBeOnTheScreen();
+    expect(screen.getByText('Oops, something went wrong.')).toBeOnTheScreen();
     expect(screen.getByText('!')).toBeOnTheScreen();
   });
 

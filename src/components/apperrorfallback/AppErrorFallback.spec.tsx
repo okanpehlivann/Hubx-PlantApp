@@ -27,12 +27,12 @@ describe('AppErrorFallback', () => {
     const onGoHome = jest.fn();
     const { unmount } = render(<AppErrorFallback onGoHome={onGoHome} />);
 
-    expect(screen.getByText('Bir şeyler ters gitti')).toBeOnTheScreen();
+    expect(screen.getByText('Something went wrong')).toBeOnTheScreen();
     expect(
-      screen.getByText(/Uygulama beklenmeyen bir hatayla karşılaştı/),
+      screen.getByText(/The app encountered an unexpected error/),
     ).toBeOnTheScreen();
 
-    fireEvent.press(screen.getByRole('button', { name: 'Ana Sayfaya Git' }));
+    fireEvent.press(screen.getByRole('button', { name: 'Go to Home' }));
 
     expect(onGoHome).toHaveBeenCalledTimes(1);
     expect(animations).toHaveLength(2);

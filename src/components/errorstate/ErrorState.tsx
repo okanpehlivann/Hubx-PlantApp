@@ -5,7 +5,7 @@ import styles from './ErrorState.styles';
 import type { ErrorStateProps } from '.';
 
 export const ErrorState: React.FC<ErrorStateProps> = ({
-  message = 'Hay aksi, bir hata oluştu.',
+  message = 'Oops, something went wrong.',
   icon,
   style,
   messageStyle,
