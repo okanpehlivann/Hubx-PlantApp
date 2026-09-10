@@ -2,11 +2,16 @@
 
 ## 🎥 Demo Video
 
-https://github.com/user-attachments/assets/c82747f6-12dc-46b4-b1d1-b813d595b500
-
-https://github.com/user-attachments/assets/36ae67eb-fef6-45ac-81a0-f943cb0bdf06
-
-
+<table>
+  <tr>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/c82747f6-12dc-46b4-b1d1-b813d595b500" width="100%" controls></video>
+    </td>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/36ae67eb-fef6-45ac-81a0-f943cb0bdf06" width="100%" controls></video>
+    </td>
+  </tr>
+</table>
 
 ## Overview
 
@@ -67,6 +72,33 @@ but were added to make the application more complete and reusable:
 Calling these out separately keeps the original requirements easy to verify
 while also showing the additional product and engineering decisions made
 during implementation.
+
+<table>
+  <tr>
+    <th align="center">Error Boundary</th>
+    <th align="center">Open Camera</th>
+    <th align="center">Native Bridge Mic</th>
+    <th align="center">Tour Guide</th>
+    <th align="center">Bottomsheet</th>
+  </tr>
+  <tr valign="middle">
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/888f1d56-18cf-4fe2-b080-e569cfbe96e3" alt="error-boundary" height="360" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/40e665a9-399e-40be-a11e-dd85d1206f28" alt="open-camera" height="80" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/9951e226-3a22-4407-9fd4-621db38552d4" alt="native-bridge-mic" height="60" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/1973b70f-dc90-4b23-b0af-7665698ff472" alt="tour-guide" height="360" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/d9eec785-dc17-4042-a18b-f97ab82250f2" alt="bottomsheet" height="360" />
+    </td>
+  </tr>
+</table>
 
 ## User Flows
 
@@ -233,11 +265,3 @@ npm run lint
 
 More detailed testing conventions are documented in
 [`TESTING.md`](./TESTING.md).
-
-## Notes
-
-- The assignment design and copy are reproduced in English to match the
-  provided screens.
-- The API is a dummy API supplied for the case study, so production data
-  persistence and authentication are outside the scope of this project.
-- The demo walkthrough is available in the video section at the top.
